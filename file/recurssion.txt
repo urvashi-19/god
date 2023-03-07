@@ -1,0 +1,689 @@
+GFG QUESTION
+#include <bits/stdc++.h>
+using namespace std;
+
+void swaps(string s, char set, int p, int i)
+{   string temp = s;
+	if (p == 3)
+	{
+		return;
+	}
+	s[p] = set;
+	
+	swaps( temp, set, p + 1, i);
+		cout << s <<endl;}
+	
+void print(string set, int i)
+{
+	string s = "";
+	for (int j = 0; j < 3; j++)
+	{
+		s = s + set[i];
+		
+		
+	}
+	for (int k = 0; k < set.size(); k++)
+	{
+		if (s[1] != set[k])
+		{     cout<<s<<endl;
+			int p = 0;
+			swaps(s, set[k], p, i);
+		}
+	}
+}
+int main()
+{
+	int k = 3;
+	string set = {'a', 'b'};
+	for (int i = 0; i < 2; i++)
+	{
+		print(set, i);
+	}
+}
+***************************************************************************************************************************************************************************
+FINDING UPPER CASE
+#include <bits/stdc++.h>
+using namespace std;
+char check(string str, int i)
+{
+
+    if (isupper(str[i]))
+    
+        {    cout<<"the value of string is "<<str[i]<<endl;
+        return str[i];}
+    
+    else
+        return check(str, i + 1);
+}
+int main()
+{
+    string str = "geKKKKK";
+    int i = 0;
+    char flag = check(str, i);
+    cout << flag;
+}
+***************************************************************************************************************************************************************************
+copy one string in other 
+
+# include<bits/stdc++.h>
+using namespace std;
+void  mycopy(char s1[],char s2[] , int i){
+    if(s1[i]=='\0'){
+        return ;}
+        s2[i] = s1[i];
+        mycopy(s1 ,s2, i+1);
+
+}
+int main(){
+    char s1[100] = "geeksforggeks";
+    char s2[100] = "";
+    int i=0;
+    mycopy(s1 ,s2, i);
+    cout<<s2;
+}
+*******************************************************************************************************************************************************
+printing pattern without using loop
+
+#include<bits/stdc++.h>
+using namespace std;
+void pattern(int n)
+{     cout<<n<<" ";
+    if (n <= 0)
+    {return;
+    }
+    pattern(n-5);
+    cout<<n<<" ";
+}
+
+int main()
+{
+    int n = 16;
+  
+    pattern(16);
+}
+
+
+output:16 11 6 1 -4 1 6 11 16 
+**********************************************************************************************
+Print sums of all subsets of a given set
+
+# include<bits/stdc++.h>
+using namespace std;
+void generate(int arr[] , int l , int r , int sum = 0){
+    
+    if(l>r){
+        cout<<sum<<" ";
+        return;
+    }
+    generate(arr , l+1 , r ,sum);
+    generate(arr , l+1 , r , sum + arr[l]);
+}
+int main(){
+    int arr[] = {5,4,3};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    generate(arr , 0 , n-1);
+
+}
+
+output:
+0 3 4 7 5 8 9 12
+
+*******************************************************************************************
+checking prime using recurssion;
+
+#include <bits/stdc++.h>
+using namespace std;
+bool isprime(int n, int i = 2)
+{
+    if (i == (int(n / 2) + 1))
+    {
+        return true;
+    }
+
+    if (n % i != 0)
+    {
+        isprime(n, i + 1);
+    }
+    if (n % i == 0)
+    {
+        return false;
+    }
+}
+int main()
+{
+    int n = 40;
+    bool ans = isprime(n);
+    if (ans == true)
+        cout << "isprime";
+    else
+        cout << "not prime";
+}
+**********************************************************************************************
+multiplying two numbers uisng recurssion
+
+# include<bits/stdc++.h>
+using namespace std;
+int  product(int x , int y){
+    if(y==0){
+        return 0 ;
+    }
+    return x + (product(x ,y-1));
+}
+
+int main()
+{
+    int x = 5, y = 3;
+    cout<<product(x, y);
+    return 0;
+}
+********************************************************************************************
+sum of natural   number using recurrsion
+# include<bits/stdc++.h>
+int sum(int n , int i){
+    if(n==i)
+    return n;
+    return n + sum(n+1,5);
+}
+using namespace std;
+int main(){
+    cout<<sum(1,5);
+
+}
+*****************************************************************************************
+GENERATE PASSWORD 
+
+#include <bits/stdc++.h>
+using namespace std;
+void sets(string str, char p, string temps)
+{
+    if (temps.length() >= 2)
+    {
+        cout << temps << endl;
+       
+        return;
+    }
+    for (int j = 0; j < 2; j++)
+    {
+        temps=temps+p+ str[j];
+        sets(str,p,temps);
+          temps="";
+       
+    }
+}
+int main()
+{
+    string str = "ab";
+    char p;
+    string x = "";
+    for (int i = 0; i < 2; i++)
+    {
+        p = str[i];
+        cout << str[i] << endl;
+        sets(str, p, x);
+    }
+}
+******************************************************************************************
+DECIMAL TO BINARY
+# include<bits/stdc++.h>
+using namespace std;
+void binary(int n){
+    if(n==0){
+        
+        return;
+    }
+    else{
+        binary(n/2);
+        cout<<n%2;
+    }
+}
+int main(){
+    binary(9);
+}
+************************************************************************************
+N QUEEN 
+
+# include<bits/stdc++.h>
+using namespace std;
+bool safe(int arr[4][4] , int row , int j ){
+    int i , col;
+    //column;
+    for( i = row -1 ; i>=0 ; i-- ){
+        if(arr[i][j]==1)
+        return false;
+    }
+    //upper left diagonal
+    for(i=row-1,col = j-1;i>=0&&col>=0;i--&&col--){
+         if(arr[i][col]==1)
+        return false;
+    }
+    //upper right diagonal
+     for(i=row-1,col = j+1;i>=0&&col<4;i--&&col++){
+         if(arr[i][col]==1)
+        return false;
+    }
+    return true;
+    }
+void solve(int row , int arr[4][4] ,int &ans){
+    if(row==4){
+        ans++;
+        return ;
+    }
+    for(int j= 0 ;j<4 ;j++){
+        if(safe( arr ,row , j)){
+            arr[row][j] =1;
+            solve( row+1 ,arr ,ans);
+            arr[row][j] = 0;
+        }
+    }
+}
+int main(){
+    int arr[4][4] = {0};
+    int ans =0 ; 
+    solve(0 , arr ,ans);
+    cout<<ans;
+}
+**************************************************************************************************************************************************
+COMBINATION OF PHONE NUMBER:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void solve(string digit, string maps[10], string output, int index)
+{
+    if (index >= digit.length())
+    {
+        cout << output << " ";
+        return;
+    }
+    int number = digit[index] - '0';
+    string value = maps[number];
+    for (int i = 0; i < value.length(); i++)
+    {
+        solve(digit, maps, output+value[i], index + 1);
+    }
+}
+int main()
+{
+    string digit = "23";
+    string maps[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqr", "stu", "vwxyz"};
+    string output="";
+    int index = 0;
+    solve(digit, maps, output, index);
+}
+**********************************************************************************************************************************************
+other // best
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve(string str, int i, string output, vector<string> &ans, string arr[])
+{
+    if (i == str.length())
+    {
+        ans.push_back(output);
+        return;
+    }
+
+    int num = str[i] - '0';
+    string value = arr[num];
+
+    for (int k = 0; k < value.length(); k++)
+    {
+        output.push_back(value[k]);
+        solve(str, i + 1, output, ans, arr);
+        output.pop_back();
+    }
+}
+
+int main()
+{
+    string map[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqr", "stuv", "wxyz"};
+    string str;
+    cin >> str;
+
+    vector<string> ans;
+    string output;
+
+    int index = 0;
+
+    solve(str, index, output, ans, map);
+
+    for(int i=0; i<ans.size(); i++){
+        cout<<ans[i]<<" ";
+    }
+
+    return 0;
+}
+
+***************************************************************************************
+permutation
+# include<bits/stdc++.h>
+using namespace std;
+void is_permutation(string & ans , int index){
+    if(index>=ans.length()){
+        cout<<ans<<" ";
+        return;
+    }
+      for(int j= index ; j<ans.length();j++){
+          swap(ans[j] , ans[index]);
+          is_permutation(ans , index+1);
+          swap(ans[j] , ans[index]);
+      }
+}
+int main(){
+    string ans = "abc";
+    int index = 0;
+    is_permutation(ans ,index );
+}
+****************************************************************************
+Print all n-digit strictly increasing numbers
+n=2
+# include<bits/stdc++.h>
+using namespace std;
+void solve( vector<string>&ans ,string output, int index){
+    if(index==2){
+      if(output[0]<output[1]){
+      ans.push_back(output);
+      return;}
+      else
+      return;
+    }
+    for(int i=index ; i<=9;i++){
+         output = output + char( i+'0');                 to_string : to convert int to string
+       solve(ans ,output, index+1);
+       output.pop_back();
+      
+
+    }
+}
+int main(){
+  vector<string>ans;
+  string output;
+  int index =0;
+  solve(ans ,output, index);
+  for(int j=0 ;j<ans.size();j++){
+    cout<<ans[j]<<" ";
+  }
+}
+
+n=3
+
+# include<bits/stdc++.h>
+using namespace std;
+void solve( vector<string>&ans ,string output, int index){
+    if(index==3){
+      if(output[0]<output[1] && output[1]<output[2]){
+      ans.push_back(output);
+      return;}
+      else
+      return;
+    }
+    for(int i=index ; i<=9;i++){
+         output = output + char( i+'0');
+       solve(ans ,output, index+1);
+       output.pop_back();
+     }
+}
+int main(){
+  vector<string>ans;
+  string output;
+  int index =0;
+  solve(ans ,output, index);
+  for(int j=0 ;j<ans.size();j++){
+    cout<<ans[j]<<" ";
+  }
+}
+
+***********************************************************************************************************************************
+Print N-bit binary numbers having more 1’s than 0’s in all prefixes
+
+#include <bits/stdc++.h>
+using namespace std;
+bool safe(string &output)
+{
+  int one = 0, zero = 0;
+  for (int i = 0; i < output.size(); i++)
+  {
+    if (output[i] == '1')
+      one++;
+    else
+      zero++;
+  }
+  if (one >= zero){
+  // cout<<"the no of ones is"<<one<<"  the no of zeroes is "<<zero<<" ";
+    return true;}
+  else
+     return false;
+}
+void solve(string &output)
+{
+  if (output.length() == 4)
+  {
+    if (safe(output))
+    {
+      cout << output << " ";
+      return;
+    }
+    else
+      return;
+  }
+ 
+
+ if(safe(output)){
+  output = output + '1';
+  solve(output );
+  output.pop_back();}
+   if(safe(output)){
+  output = output + '0';
+  solve(output);
+   output.pop_back();
+   }
+   
+}
+
+int main()
+{
+  string output = "1";
+ 
+  solve(output);
+}
+
+output: 1111 1110 1101 1100 1011 1010 
+
+*******************************************************************************
+Find m-th summation of first n natural numbers.
+
+#include <iostream>
+using namespace std;
+int sum(int n, int val)
+{
+  if (val == 1)
+  {
+    int total = 0;
+    for (int i = 1; i <= n; i++)
+    {
+      total = total + i;
+    }
+    return total;
+  }
+
+  int p = sum(n, val - 1);
+  return (p * (p + 1)) / 2;
+}
+int main()
+{
+  int n = 4;
+  int val = 3;
+  cout << sum(4, 3);
+}
+******************************************************************************************
+SUBSEQUENCE
+
+# include<bits/stdc++.h>
+using namespace std;
+void subsequence(string str , string output , int index){
+    if(index == str.length()){
+        cout<<output<<" " ;
+        return;
+    }
+     subsequence(str , output , index+1);
+      subsequence(str , output + str[index] , index +1);
+
+}
+int main(){
+    string str = "abcab";
+    int index = 0;
+    string output;
+    subsequence(str , output , index);
+
+}
+******************************************************************************************************************
+GENERATE PARENTHESIS
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<string>valid;
+void solve(int o, int c, string s)
+{
+  
+    if (o == 0 && c == 0)
+    {
+        valid.push_back(s);
+        return;
+    }
+    if (o > 0)
+    {
+        s.push_back('(');
+        solve(o - 1, c, s);
+        s.pop_back();
+    }
+    if (c > 0)
+    {
+        if (c > o)
+        {
+            s.push_back(')');
+            solve(o, c - 1, s);
+            s.pop_back();
+        }
+    }
+}
+int main()
+{
+    int o = 4;
+    int c = 4;
+    string s;
+    solve(o, c, s);
+    for (int i = 0; i < valid.size(); i++)
+    {
+        cout << valid[i]<<" ";
+    }
+}
+**********************************************************************************************************************************
+ONLY USING RECURSSION.
+
+ The k-th Lexicographical String of All Happy Strings of Length n
+#include <bits/stdc++.h>
+using namespace std;
+void  check(vector<string> &str, string ans, string s, int index ,char last)
+{
+    if (ans.length() == index)
+    {   
+        str.push_back(ans);
+        return;
+    }
+    for (int i = 0; i < s.length(); i++)
+    {
+        char x = s[i];
+        if (x != last)
+        {
+            check(str, ans + x, s, index ,x);
+        }
+    }
+    return ;
+}
+
+int main()
+{
+    vector<string> str;
+    string s = "abc";
+    string ans = "";
+    int index = 3 ;
+    int k;
+    char last = ' ';
+    check(str, ans, s, index ,last);
+    sort(str.begin(),str.end());                 //string are sorted no need to use
+    // for(int i=0 ;i<str.size();i++){
+    //     cout<<str[i]<<endl;
+    // } 
+    cout<<str[8]; 
+}
+***********************************************************************************
+letter combination:
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<string> ans; // store the ans;
+
+void solver(string ip, string op)
+{
+    if (ip.length() == 0) // base case (for the leaf node)
+    {
+        ans.push_back(op);
+        return;
+    }
+    string op1 = op;
+    string op2 = op;
+    
+
+    if (isdigit(ip[0])) // if its a digit we just add it
+    {
+        op1.push_back(ip[0]);        
+           
+        ip.erase(ip.begin() + 0);
+        solver(ip, op1);
+       
+    }
+    else
+    { // if its an alphabet, we change the case here from lower to higher and vica verca
+        op1.push_back(tolower(ip[0]));
+        op2.push_back(toupper(ip[0]));
+        ip.erase(ip.begin() + 0);
+        solver(ip, op1);
+        solver(ip, op2);
+    }
+    return;
+}
+int main()
+{
+    string ip = "a1b2";
+    string op = "";
+    solver(ip, op);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << endl;
+    }
+}
+*********************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

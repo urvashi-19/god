@@ -1,0 +1,2324 @@
+: 1.decimal to binary
+#include <iostream>
+
+using namespace std;
+
+int main()
+{   int n = 83, k ,r,p=0 ,s=1;
+while(n!=0){
+    r = n%2;
+    s = s*10 + r;
+    n= n/2;
+}
+while(s!=0){
+    int t = s%10;
+    p = p*10 + t;
+    s = s/10;
+}
+cout<<p/10;
+
+    return 0;
+}
+
+
+
+2. vice versa
+# include<iostream>
+# include<cmath>
+using namespace std;
+int main(){
+    int n , sum = 0 , r , count=0 ,p;
+    n = 1001001;
+    while(n!=0){
+        r = n%10;
+        p = pow(2,count);
+        sum = sum + r*p;
+        n = n/10;
+        count++
+        cout<<sum;
+
+}
+
+3.
+# include<iostream>
+using namespace std;
+int main(){
+    int n , count=0;
+    cin >> n;
+    for(int i=2;i<n/2;i++){
+        if(n%i==0){
+            count++;
+        }
+    }
+    if(count==0){
+        cout<<"prime no";
+    }
+    else{
+    cout<<"non prime no";
+    }
+}
+
+4. to add sum of odd no and even number in it..eg 1234..odd sum 3 and even 6
+# include<iostream>
+using namespace std;
+int main(){
+    int n ,r,even=0 , odd=0;
+    cin>>n;
+    while(n!=0){
+        r = n%10;
+        if(r%2==0){
+            even = even +r;
+        }
+        else
+        odd = odd +r;
+        n = n/10;
+    }
+    cout<<"even:"<<even<<endl;
+    cout<<"odd:"<<odd<<endl;
+}
+
+5. to calculate power
+# include<iostream>
+using namespace std;
+int main(){
+    int x ,n,i ,result=1;
+    cin>>x>>n;
+    for(i=0;i<n;i++){
+        result = result*x;
+    }
+    cout<<result;
+}
+[2:02 pm, 17/03/2022] Urvashi: python pp
+[2:02 pm, 17/03/2022] Urvashi: n1 = int(input("enter the value of n1"))
+n2 = int(input("enter the value of n2"))
+while(n1<=n2):
+    if (n1%2==0):
+        print( "\t" ,n1 ,end="")
+    n1 = n1+1
+**************************
+summation of number
+n= 456
+sum =0
+while(n>0):
+    p = n %10
+    sum = sum + p
+    n=n//10
+print("the summation is ..." ,sum)
+**************************
+printing pattern of 456
+n= 456
+sum =0
+while(n>0):
+    p = n %10
+    i=1
+    while(i<=p):
+        print(p,end="")
+        i=i+1
+    print("\n")                  we take a back space to come out of loop
+    n=n//10
+**************************
+largest among three number
+n1 = int(input())
+n2 = int(input())
+n3 = int(input())
+if (n1>n2) and (n1>n3):
+    print("large n1")
+elif (n2>n1) and (n2>n3):
+    print("large n2")
+else:
+    print("large n3")
+**************************
+prime no
+n= int(input("enter the number\n"))
+if (n==1) and (n==2):
+    print("1")
+elif n%2==0:
+    print(" non prime no")
+else:
+    print("prime no")
+
+************************
+factorial
+n = int(input("enter the value of n"))
+i=1
+fact = 1
+for i in range(1, n + 1):
+    fact = fact * i
+print(fact)
+
+***********************
+multiplication of n
+n= int(input("enter the value of n"))
+for i in range(1 ,11):
+    mult = n*i
+    print( "\t" ,n,"*" ,i ,"=" ,mult)
+***********************
+fibonacci series
+n= int(input("enter the value of n"))
+first = 0
+second = 1
+for i in range(n):
+    print(first)
+    temp = first
+    first = second
+    second = temp + first
+**********************
+amstrong number
+n= int(input("enter the value of n"))
+sum =0
+temp = n
+while(temp > 0):
+    r = temp%10
+    sum = sum + r*r*r
+    temp= temp//10
+if (n==sum):
+    print("amstrong number")
+else:
+    print("not amstrong number")
+**********************
+printing prime no between 50 and 100
+
+n= int(input("enter the value of n"))
+if ((n>=50) & (n<=100)):
+    if (n%2==0):
+        print("non prime")
+    else:
+        print("prime")
+    print()
+else:
+    print("default")
+
+***********************
+counting vowel and consonant using python
+def count(val):
+    vol =0;
+    conso = 0;
+    for i in range(len(val)):
+        if val[i] in ['a','e','i','o','u']:
+            vol = vol +1
+        else:
+            conso = conso +1
+    print(vol ," and " , conso)
+x = input("enter the value of val")
+count(x)
+**********************
+factorial in pyhton using python
+def fact(num):
+    fact=1
+    for i in range(1 ,num+1):
+        fact = fact*i
+    return fact
+num = int(input("enter the value"))
+p = fact(num)
+print(p)
+*******************
+removing repititive elements from list
+num = [2,3,4,5,2,6,3,2]
+x = []
+for i in range(len(num)):
+    if num[i] not in x:
+        x.append(num[i])
+    else:
+        pass
+print(x)
+******************
+checking prime no in pythonn= int(input("enter the value of n"))
+count=0
+for i in range(2 ,n):
+    if(n%i==0):
+        count = count+1
+    else:
+        pass
+if(count==0):
+    print("prime no")
+else:
+    print("nonprime no")
+
+
+
+***************************************************************
+printing pattern
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Write C++ code here
+    int k ,j;
+    cin>>k;
+    for(int i=1 ;i<k ; i++){
+        for(j=1 ;j<=i ;j++){
+            cout<<j;
+        }
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+*********************************************************
+using star
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Write C++ code here
+    int k ,j;
+    cin>>k;
+    for(int i=1 ;i<k ; i++){
+        for(j=1 ;j<=i ;j++){
+            cout<<"*";
+        }
+        cout<<"\n";
+    }
+    
+
+    return 0;
+}
+******************************************************
+printing pattern:
+4
+   1
+  23
+ 345
+4567
+
+# include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    for(int i=1 ;i<=n ;i++){
+        for(int s=0 ; s<n-i;s++){
+            cout<<" ";
+        }
+        for(int j =0 ;j<i ; j++){
+            cout<<i+j;
+        }
+        cout<<"\n";
+    }
+}
+***************************************************************
+# include<iostream>
+using namespace std;
+int main(){
+    char c;
+    cin>>c;
+    if(c>='A' && c<='Z'){
+        cout<<"upper case";
+    }
+    else if (c>='a' && c<='z'){
+        cout<<"lower case";
+    }
+    else{
+        cout<<"IOK";
+    }
+}
+***************************************************************
+taking input a number and output must be in range of 0 to 9 and then multiplying it with 5
+# include<iostream>
+using namespace std;
+int main(){
+    char ch;
+    cin>>ch;
+    int a = ch - '0';
+    a = a*5;
+    cout<<a;
+    return 0;
+}
+********************************************************************************************
+4
+1 
+2 3
+4 5 6
+7 8 9 10
+
+# include<iostream>
+using namespace std;
+int main(){
+    int n, count =1;
+    cin>>n;
+    for(int i=1;i<=n ;i++){
+        for(int j=1 ; j<=i ;j++){
+            cout<<count<<" ";
+            count++;
+        }
+        cout<<endl;
+
+    }
+}
+
+************************************************************************************************************
+4
+A 
+B B
+C C C
+D D D D
+
+my code:
+# include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    char ch = 65;
+    for(int i=1 ; i<=n ; i++){
+        for(int j= 0 ; j<i ; j++){
+            cout<<ch<<" ";
+
+        }
+        ch++;
+        cout<<endl;
+    }
+}
+
+other way:
+# include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    char ch = 'A';
+    for(int i=1 ; i<=n ; i++){
+        for(int j= 0 ; j<i ; j++){
+            cout<<ch<<" ";
+
+        }
+        ch++;
+        cout<<endl;
+    }
+}
+
+******************************************************************************
+4
+   *
+  ***
+ *****
+*******
+
+# include<iostream>
+using namespace std;
+int main(){
+    int n ;
+    cin>>n;
+    for(int i=1 ; i<=n ; i++){
+        for(int j=4 ; j>i; j--){
+            cout<<" ";
+        }
+        for(int k=1  ; k<=2*i-1 ; k++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+}
+
+*******************************************************************************************
+
+4
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+
+# include<iostream>
+using namespace std;
+int main(){
+    int n ,p  ;
+    cin>>n;
+    for(int i=1 ; i<=n ; i++){
+        for(int j=4 ; j>i; j--){
+            cout<<" ";
+        }
+        for(int k=1  ; k<=2*i-1 ; k++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+    for(p = n; p>1 ; p--){
+        for(int y = n-p ; y>=0 ;y--){
+            cout<<" ";}
+        
+        for( int g=1 ; g < 2*p -2 ; g++){
+            cout<<"*";
+        }
+        cout<<endl;
+
+        
+ }
+}
+
+*********************************************************************************************
+increasing and deceasing one.....
+# include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    bool drop =0;
+    int pre = INT_MIN;
+    bool inv =0;
+    
+    while(n>0){
+        int last = n%10;
+        n=n/10;
+        if(drop==1 && last>pre){
+            cout<<"invalid";
+            break;
+        }
+        if(last<pre){
+            drop =1;
+        }
+        pre = last;
+    }
+    if(!inv){
+        cout<<"valid";
+    }
+    return 0;
+
+}
+****************************************************************
+largest in an array
+# include<iostream> 
+using namespace std;
+int main(){
+    int a[5] , large ,i;
+    for( i=0 ; i<5 ;i++){
+        cin>>a[i];
+    }
+    large = a[0];
+    for(i=1 ;i<5 ;i++){
+        if(large<a[i]){
+            large = a[i];
+        }
+    }
+    cout<<large;
+}
+****************************************************
+finding both smallest and largest
+# include<iostream> 
+using namespace std;
+int main(){
+    int a[5] , large ,i,small;
+    for( i=0 ; i<5 ;i++){
+        cin>>a[i];
+    }
+    large = a[0];
+    small = a[0];
+    for(i=1 ;i<5 ;i++){
+        if(large<a[i]){
+            large = a[i];
+        }
+        else if(small>a[i]){
+            small = a[i];
+        }
+    }
+    cout<<large<<"and"<<small;
+}
+***************************************************************************
+invalid...
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int pre=INT_MAX;
+    int c=1;
+    bool inv=0;
+    while(n>0)
+    {
+        int last=n%10;
+        n=n/10;
+        if(c%2==0)
+        {
+            if(last<pre)
+            {
+                cout<<"invalid";
+                inv=1;
+                break;
+                
+            }
+        }
+        else{
+            if(last>=pre)
+            {
+                cout<<"invalid";
+                inv=1;
+                break;
+            }
+        }
+        pre=last;
+        c++;
+        
+    }
+    if(inv==0)
+    {
+    cout<<"valid";
+    }
+    
+}
+*************************************************************************************************
+4
+1 
+1 1 
+2 0 2 
+3 0 0 3
+
+# include<iostream>
+using namespace std;
+int main(){
+    int n ,i ,j;
+    cin>>n;
+    for(i=0 ; i<4 ;i++){
+        if(i>=1){
+            cout<<i<<" ";
+        }
+        else{
+            cout<<"1"<<" ";
+        }
+        if(i>1){
+            for(j=1 ;j<i;j++){
+                cout<<"0"<<" ";
+            }
+
+        }
+        if(i>=1){
+            cout<<i<<" ";
+        }
+        cout<<endl;
+
+    }
+*********************************************************************************************************
+4
+   1 
+  1 1
+ 1 2 1
+1 3 3 1
+
+pascal triangle:
+# include<iostream>
+using namespace std;
+int main(){
+    int n,i,j,s;
+    cin>>n;
+    
+    
+    for(i=0 ;i<n;i++){
+        for(s=i+1;s<4;s++){
+        cout<<" ";
+    }
+        if(i>=1){
+            cout<<1<<" ";
+        }
+        else{
+            cout<<"1"<<" ";
+        }
+        if(i>1){
+            for(j=1 ;j<i;j++){
+                cout<<i<<" ";
+            }
+        }
+        if(i>=1){
+            cout<<"1";
+        }
+        cout<<endl;
+    }
+
+}
+***********************************************************************************************
+rotation of array
+
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+     int arr[5] = { 1,2,3,4,5};
+     int k ,i;
+     cout<<"times array to be rotated:";
+     cin>>k;
+     for(i = k;i<5;i++){
+         cout<<arr[i];
+     }
+     for(i = 0 ;i<k;i++){
+         cout<<arr[i];
+     }
+
+    }
+***********************************************************************************************
+2 sum leetcode problem:
+4
+5
+2
+7
+9
+5 and 2
+code:
+# include<iostream>
+using namespace std;
+int main(){
+    int  a[6]  ,i,j,target=7;
+    for(i=0 ;i<5;i++){
+        cin>>a[i];
+    }
+    for(i=0 ;i<5 ;i++){
+        for(j=i+1;j<=4;j++){
+
+            if(a[i]+a[j] == target){
+                cout<<a[i]<<" and "<<a[j];
+            }
+
+        }
+    }
+}
+***************************************************************************************************
+3 sum question finding in an array
+4
+5
+1
+6
+3
+4 and 5 and 1
+4 and 1 and 5
+4 and 3 and 3
+1 and 6 and 3
+1 and 3 and 6
+
+code:
+# include<iostream>
+using namespace std;
+int main(){
+    int  a[7]  ,i,j,k,target=10;
+    for(i=0 ;i<5;i++){
+        cin>>a[i];
+    }
+    for(i=0 ;i<5 ;i++){
+        for(j=i+1;j<=5;j++){
+            for(k=i+1;k<=4;k++){
+
+            if(a[i]+a[j]+a[k] == target){
+                cout<<a[i]<<" and "<<a[j] <<" and "<<a[k]<<endl;
+            }
+
+        }
+    }
+}
+}
+*************************************************************************************************************************************************
+VECTORS IN C++:
+
+IN VECTOR THE CAPACITY DOUBLES..0,2,4...
+we use v.capacity()...to check the capacity
+
+
+# include<iostream>..................general syntax
+# include<vector>
+using namespace std;
+int main(){
+    vector<int>vect1;
+}
+
+2. push_back in c++:
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    vector<int> v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+    cout<<v[0] <<endl;
+    cout<<v[1]<<endl;
+    cout<<v[2]<<endl;
+    
+}
+
+output:
+10
+20
+30
+
+we can hange the value too... v[1] = 100
+
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    vector<int> v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+    v[1] = 100;
+    cout<<v[0] <<endl;
+    cout<<v[1]<<endl;
+    cout<<v[2]<<endl;
+    
+}
+
+
+3.
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i;
+    vector<int> v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+    for(int i=0 ;i < v.size();i++){
+        cout<<v[i]<<endl;
+    }
+    }
+output:
+10
+20
+30
+
+4.
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i;
+    vector<int> v;
+    for(int i=0 ;i<100;i++){
+        v.push_back(i);
+    }
+    
+    for(int i=0 ;i < v.size();i++){
+        cout<<v[i]<<endl;
+    }
+    }
+
+output print no 1-100
+
+5. by taking input from the user.
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i ,n;
+    vector<int> v;
+    for(int i=0 ;i<5;i++){
+        cin>>n;
+        v.push_back(n);
+    }
+    
+    for(int i=0 ;i < v.size();i++){
+        cout<<v[i]<<endl;
+    }
+    }
+*****************************************************************************************************************
+CHECKING VALUE IN ARRAY USING VECTOR
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i ,curr;
+    cin>>curr;
+    vector<int>v;
+    while(curr!=-1){
+        v.push_back(curr);
+        cin>>curr;
+
+    }
+    for(i=0;i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+
+}
+
+OUTPUT:
+45
+46
+47
+48
+49
+98
+-1
+45 46 47 48 49 98 
+**************************************************************************************************
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i ,curr;
+    cin>>curr;
+    vector<int>v;
+    while(curr!=-1){
+        v.push_back(curr);
+        cin>>curr;
+
+    }
+    v.pop_back();
+    for(i=0;i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+}
+output:
+45
+56
+83
+45
+893 
+-1
+45 56 83 45 
+
+**************************************************************************************************
+printing numbers from vevtors:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int>v = {1,2,3,4,5};
+    for(int i: v){
+        cout<<i<<" ";
+    }}
+output:
+1 2 3 4 5
+******************************************************************************************************
+size and value in vectors:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int>v(5,12);
+    for(int i: v){
+        cout<<i<<" ";
+    }}
+output:
+12 12 12 12 12
+*********************************************************************************************************
+push_back and arary
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int>v(5,12);
+    for(int i: v){
+        cout<<i<<" ";
+    }
+    v.push_back(56);
+    v.push_back(89);
+    for(int i:v){
+        cout<<i<<" ";
+    }}
+output:
+12 12 12 12 12 12 12 12 12 12 56 89
+**********************************************************************************************************
+PRINT THE DUPLICATES ELEMENT:
+# include<bits\stdc++.h>
+using namespace std;
+int main(){
+    int arr[12] = { 1,2,4,6,3,4,2,5,3,2,3,4};
+    int i , j,c=0;
+    for(i=0;i<12;i++){
+        for(j=i+1;j<12;j++){
+            if(arr[i]==arr[j]){
+                if(i!=j){
+                if(c==0  && arr[j]!='\0'){
+                    cout<<arr[i]<<" ";
+                    c++;
+                }
+                arr[j]='\0';
+            }
+            }
+           
+        }
+         c=0;
+    }
+
+}
+
+OUTPUT: 2 4 3
+***********************************************************************************************************
+changing element in an array
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+  vector<int> num {1, 2, 3, 4, 5};
+for(int i:num){
+    cout<<i<<" ";
+}
+cout<<endl;
+num.at(2) = 56;
+num.at(4) = 89;
+for(int i:num){
+    cout<<i<<" ";
+}
+  
+
+  return 0;
+}
+
+output:
+1 2 3 4 5
+1 2 56 4 89
+*********************************************************************************************************
+
+*********************************************************************************************************
+PRINTING FIBONACCI USING VECTORS:
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i ,n;
+    
+    cin>>n;
+    vector<int>v;
+    if(n==0){
+        cout<<"0"<<endl;
+    }
+    else if(n==1){
+        cout<<"0 1"<<endl;
+    }
+    else{
+        v.push_back(0);
+        v.push_back(1);
+
+        for(int i=2 ; i<n;i++){
+        v.push_back(v[i-1] +v[i-2]);
+        
+
+    }
+    for(int i=0 ;i<n;i++){
+        cout<<v[i]<<" ";
+    }
+}
+}
+
+
+******************************************************************************************+***************
+
+# include<iostream>
+# include<vector>
+using namespace std;
+int main(){
+    int i ,n;
+    
+    cin>>n;
+    vector<int>v;
+    if(n==0){
+        cout<<"0"<<endl;
+    }
+    else if(n==1){
+        cout<<"0 1"<<endl;
+    }
+    else{
+        v.push_back(0);
+        v.push_back(1);
+
+        for(int i=2 ; i<n;i++){
+        v.push_back(v[i-1] +v[i-2]);
+    
+
+    }
+    v.push_back(1111111);
+    for(int i=0 ;i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+}
+}
+
+output:
+5
+0 1 1 2 3 1111111
+*****************************************************************************************
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, arr[10];
+    for (i = 0; i < 10; i++)
+    {
+        cin >> arr[i];
+    }
+    for (i = 0; i < 10; i += 2)
+    {
+        cout << arr[i] <<" ";
+    }
+    for (i = 1; i <= 10; i += 2)
+    {
+        cout << arr[i] <<" ";
+    }
+}
+
+output:
+1 3 5 7 9 2 4 6 8 10
+**************************************************************************************************
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i,arr[10]={1,2,3,4,5,6,7,8,9,10};
+    // for (i = 0; i < 10; i++)
+    // {
+    //     cin >> arr[i];
+    // }
+    for (i = 0; i <= 9; i += 2)
+    {
+        cout << arr[i] <<" ";
+    }
+    for (i = 9; i >= 0; i=i-2)
+    {
+        cout << arr[i] <<" ";
+    }
+}
+
+output:
+1 3 5 7 9 10 8 6 4 2 
+**************************************************************************************************
+unique element:
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, n, arr[7];
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < i; j++)
+        {
+            if (arr[i] == arr[j])
+            {
+                break;
+            }
+        }
+        if (i == j)
+        {
+            cout << arr[i]<<" ";
+        }
+    }
+}
+
+output:
+7
+2
+2
+3
+4
+5
+5
+6
+2 3 4 5 6
+*******************************************************************************************************************
+swaping of consecutive no in an array
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, arr[100], n, temp;
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (i = 0; i < n; i += 2)
+    {
+        if (n % 2 == 0)
+        {
+            temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            cout << arr[i] << " " << arr[i + 1] << " ";
+        }
+        else if (n % 2 != 0){
+            if(i==n-1){
+                cout<<arr[n-1];
+                break;
+            }
+            else{
+                temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            cout << arr[i] << " " << arr[i + 1] << " ";
+
+            }
+        }
+    
+}
+}
+
+output:
+
+5
+1
+2
+3
+4
+5
+2 1 4 3 5
+**********************************************************************************************
+finding a unique element when other elements repeats
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, arr[100], c , n;
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (i = 0; i < n; i++)
+    {    c=0;
+        for (j = 0; j < n; j++)
+        {  if(i!=j){
+            if (arr[i] == arr[j])
+            {
+                c++;
+            }
+        }
+        }
+        if (c == 0)
+        {
+            cout << arr[i];
+        }
+    }
+}
+
+output:
+7...............value of n
+1
+2
+1
+2
+3
+4
+4
+3...............output
+**********************************************************************************************************
+another way:
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, arr[100], c , n;
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (i = 0; i < n; i++)
+    {    c=0;
+        for (j = 0; j < n; j++)
+        {  
+            if (arr[i] == arr[j])
+            {
+                c++;
+            }
+        
+        }
+        if (c == 1)
+        {
+            cout << arr[i];
+        }
+    }
+}
+
+*************************************************************************************************************
+ARRANGING ARRAY ELEMENTS IN DESCENDING ORDER
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, n, temp;
+    cin >> n;
+    int arr[n];
+    for (i = 0; i < n; i++)
+    {
+        cin >>arr[i];
+    }
+    for (i = 0; i < n; i++)
+    {
+        for (j = i+1; j < n; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        cout << arr[i]<<" ";
+    }
+}
+
+
+***************************************************************************************************************
+ARRANGING ARRAY ELEMENTS IN ASCENDING ORDER
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, n, temp;
+    cin >> n;
+    int arr[n];
+    for (i = 0; i < n; i++)
+    {
+        cin >>arr[i];
+    }
+    for (i = 0; i < n; i++)
+    {
+        for (j = i+1; j < n; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for (i =n-1; i >=0; i--)
+    {
+        cout << arr[i]<<" ";
+    }
+}
+
+OUTPUT:
+5
+4
+5
+2
+1
+3
+1 2 3 4 5 
+***************************************************************************************************************
+FUNCTIONS
+
+# include<iostream>
+using namespace std;
+void grade(int arr[],int n,int grace){
+    cout<<"result";
+
+    for(int i=0 ;i<n;i++){
+        arr[i] = arr[i] + grace;
+        if(arr[i]>90){
+            cout<<"A"<<" ";
+        }
+        else if(arr[i]>80){
+            cout<<"B"<<" ";
+        }
+        else{
+            cout<<"C"<<" ";
+        }
+
+    }
+}
+void input(int arr[],int n){
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+}
+int main(){
+    int n1 ,n2,n3;
+    cin>>n1>>n2>>n3;
+    int A[n1],B[n2],C[n3];
+    input(A,n1);
+    input(B,n2);
+    input(C,n3);
+    grade(A,n1, 5);
+    grade(B,n2, 2);
+    grade(C,n2,3);
+}
+
+P.S: agar hmane return o likh hoat cout o ki jagah toh loop ussi ke baad exit ho jate grade ke pass bakki b and c grade print nhi karta.
+*********************************************************************************************************************************************************
+SORTING USING FUNCTION
+SORT(ARR , ARR+(N))
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    int i,n;
+    cin>>n;
+    char  arr[n];
+
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    sort(arr, arr + (n));
+    for (i = 0; i < n; i++)
+    {
+        cout << arr[i];
+    }
+}
+************************************************************************************************************************************************************
+call by value: it does not show the change in value when passed.
+call by reference: it show the chnage in value when passed.
+*********************************************************************************************************************************
+SORTING
+
+1. SORTING:
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, n, temp;
+    cin >> n;
+    int arr[n];
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 1; j < n; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
+output:
+5
+78
+1
+96
+45
+2
+96 78 45 2 1 
+**************************************************************************************************************************
+
+2. BUBBLE SORTING: Adjacent elements swaping is done
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j, n, temp;
+    cin >> n;
+    int arr[n];
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 1; j < n; j++)
+        {
+            if (arr[j - 1] < arr[j])
+            {
+                temp = arr[j - 1];
+                arr[j - 1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
+output:
+5
+78
+1
+96
+45
+2
+96 78 45 2 1 
+
+************************************************************************************************************************************
+3. binary search
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, s, e, n, data = 3;
+    cin >> n;
+
+    int arr[n];
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    s = 0, e = n - 1;
+    int flag =0;
+    while (s <= e)
+    {
+        int mid = (s + e) / 2;
+        if (data == arr[mid])
+        {
+            cout << "the index is: " << mid ;
+            flag = 1;
+            break;
+        }
+        else if (data > arr[mid])
+        {
+            s = mid + 1;
+        }
+        else if (data < arr[mid])
+        {
+            e = mid - 1;
+        }
+    }
+    if (flag==0){
+        cout<<"element not found";
+    }
+}
+******************************************************************************************************************************************
+finding sqaure root using binary search:
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int mid, e, s, n, ans = 0, target;
+    cout << "no of elements in an array";
+    cin >> n;
+    cout << "the value of target";
+    cin >> target;
+    int arr[n];
+    cout << "elements in array";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    s = 0;
+    e = n - 1;
+    while (s <= e)
+    {
+        mid = (s + e) / 2;
+        if (arr[mid] * arr[mid] > target)
+        {
+            e = mid - 1;
+        }
+        else if (arr[mid] * arr[mid] <= target)
+        {
+            s = mid + 1;
+            ans = arr[mid];
+        }
+    }
+    cout << "the element is :" << ans;
+}
+
+output:
+the value of target 8
+elements in array 1 2 3 4 5 6 7 8 9 10
+the element is :2
+
+*****************************************************************************************************************************************************
+print no of elements less than x using sorted array
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, i, e, mid, s, target;
+    cout << "no of elements in an array";
+    cin >> n;
+    cout << "value of target";
+    cin >> target;
+    int arr[n];
+    cout << "taking value from the  user ";
+    for (i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    s = 0, e = n - 1;
+    while (s <= e)
+    {
+        
+        mid = (s + e) / 2;
+        if (arr[mid] < target)
+        {
+            for (i = s; i <= mid; i++)
+            {
+                cout << arr[i] << " ";
+
+            }
+            s = mid + 1;
+        }
+        else if (arr[mid] > target)
+        {
+            e = mid - 1;
+        }
+    }
+}
+
+output:
+no of elements in an array 8
+value of target 12
+taking value from the  user 2 4 6 7 9 10 12 14
+2 4 6 7 9 10
+*****************************************************************************************************************************
+printing boundary elements of an array:
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j,k;
+    int r1 = 0, r2 = 3, c1 = 0, c2 = 4, arr[4][5];
+    for (k = 0; k < 4; k++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            cin >> arr[k][j];
+
+        } 
+    }
+    cout<<"display the elements";
+
+    for (k = 0; k < 4; k++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            cout<<arr[k][j];
+
+        } 
+        cout<<endl;
+    }
+    cout<<endl;
+    
+    for (i = c1; i <= c2; i++)
+    {
+        cout << arr[r1][i]<<endl;
+    
+    }
+    for (i = r1 + 1; i <= r2 ; i++)
+    {
+        cout << arr[i][c2]<<endl;
+    }
+    for (i = c2 - 1; i >= c1; i--)
+    {
+        cout << arr[r2][i]<<endl;
+    }
+    for (i = r2 - 1; i >= r1+1; i--)
+    {
+        cout << arr[i][c1]<<endl;
+    }
+}
+
+OUTPUT:
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+display the elements
+12345
+678910
+1112131415
+1617181920
+
+1
+2
+3
+4
+5
+10
+15
+20
+19
+18
+17
+16
+11
+6
+
+***************************************************************************************************************************************
+SPIRAL LOOP IN AN ARRAY
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, j,k;
+    int r1 = 0, r2 = 3, c1 = 0, c2 = 4, arr[4][5];
+    for (k = 0; k < 4; k++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            cin >> arr[k][j];
+
+        } 
+    }
+    cout<<"display the elements"<<endl;
+
+    for (k = 0; k < 4; k++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            cout<<arr[k][j];
+
+        } 
+        cout<<endl;
+    }
+    cout<<endl;
+    while(r1<=r2 && c1<=c2){
+    
+    for (i = c1; i <= c2; i++)
+    {
+        cout << arr[r1][i]<<endl;
+    
+    }
+
+    for (i = r1 + 1; i <= r2 ; i++)
+    {
+        cout << arr[i][c2]<<endl;
+    }
+    for (i = c2 - 1; i >= c1; i--)
+    {
+        cout << arr[r2][i]<<endl;
+    }
+    for (i = r2 - 1; i >= r1+1; i--)
+    {
+        cout << arr[i][c1]<<endl;
+    }
+    
+    c1++;
+    r1++;
+    r2--;
+    c2--;
+}}
+
+ouput:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+display the elements
+12345
+678910
+1112131415
+1617181920
+
+1
+2
+3
+4
+5
+10
+15
+20
+19
+18
+17
+16
+11
+6
+7
+8
+9
+14
+13
+12
+
+***************************************************************************************************************************
+CHARACTER STORES THE ASCII VALUE :
+EXAMPLE:
+STR = "24567"
+STR[0] = 2
+SO IT MEANS 50
+STR[0] = STR[0]+2 = 50+2=52...
+THAT MEANS AT INDEX 0 IT WILL BE 4
+TO CONVERT STRING TO AN INT :
+str[0]-'0'...ascii value of element at 0 index is 50
+50-48=2
+so this way by subtracting '0' we can access thst element in the form of string.
+TO CONVERT INT TO AN STRING
+suppose we have 2..
+2 + '0'= 2+48=50
+str[i]=50
+so here array will store in the form of 2 in array
+
+RESULT:
+DIFF OF STRING-'0'= INT     '2'-'0' = 2(INT)
+ADD OF INT+'0'= STRING............EG 2+'0'= 50(STRING)
+
+
+
+******************************************************************************************************************************
+character array:
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    char arr[] = "shyam";
+    cout<<arr+1<<endl;
+    cout << arr[1];
+}
+
+output:
+hyam
+h
+****************************************************************************************************************
+check palindrome or not:
+
+# include<bits\stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    char ch [n+1];
+    cin>>ch;
+    bool flag = 1;
+    for(int i=0 ;i<n;i++){
+        if(ch[i] != ch[n-1-i]){
+            flag =0;
+            break;
+
+        }
+    }
+    if(flag==1){
+        cout<<"palindrome";
+    }
+    else{
+        cout<<"false";
+    }
+}
+
+output:
+5
+naman
+palindrome
+**********************************************************************************************
+deleting kth index from an array
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    char ch[n + 1];
+    cin >> ch;
+    int x=3;
+    for (int i=x; i <= n-1 ; i++)
+    {
+
+        ch[i] = ch[i + 1];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << ch[i];
+    }
+}
+
+output:
+8
+korea
+kora
+*******************************************************************************
+removing a from abaacd
+# include<iostream>
+using namespace std;
+int main(){
+    int n,i=0;
+    cin>>n;
+    char ch[n];
+    cin>>ch;
+    char x;
+    cin>>x;
+    while(ch[i]!='\0'){
+        if(ch[i]==x){
+            for(int j=i ;ch[j]!='\0';j++){
+                ch[j] = ch[j+1];
+            }
+        }
+        if(ch[i]==x){                        ..........this continue
+            continue;                                             will pass the iteration 
+        }                                                                   and will keep the same value of  iteration at that particular condition
+        i++;
+    }
+    for( i=0 ; ch[i]!=0;i++){
+        cout<<ch[i];
+    }
+}
+when i=0.some changes..continue statement is executed and increment in i does not occur....when i=0..ch[i]==x condition fails.pass statement
+does not execute increment in i occur and then again loop will start
+***************************************************************************************
+using functions
+#include <bits/stdc++.h>
+using namespace std;
+void delx(char arr[], char &x)
+{
+    int i = 0;
+    while (arr[i] != '\0')
+    {
+        if (arr[i] == x)
+        {
+            for (int k = i; arr[k] != '\0'; k++)
+            {
+                arr[k] = arr[k + 1];
+            }}
+            if (arr[i] == x)
+            {
+                continue;
+            }
+            i++;
+        
+    }
+}
+int main()
+{
+    char arr[1000], x;
+    cin>>arr;
+    cin >> x;
+    delx(arr, x);
+    cout<<arr;
+    
+}
+
+SAME CODE USING POINTERS
+
+#include <bits/stdc++.h>
+using namespace std;
+void delx(char *arr, char &x)
+{
+    int i = 0;
+    while (arr[i] != '\0')
+    {
+        if (arr[i] == x)
+        {
+            for (int k = i; arr[k] != '\0'; k++)
+            {
+                arr[k] = arr[k + 1];
+            }}
+            if (arr[i] == x)
+            {
+                continue;
+            }
+            i++;
+        
+    }
+}
+int main()
+{
+    char arr[1000], x;
+    cin>>arr;
+    cin >> x;
+    delx(arr, x);
+    cout<<arr;
+    
+}
+***************************************************************************************************************************************
+printing substrings
+
+# include<iostream>
+using namespace std;
+int main(){
+    char ch[5] = "abc";
+    int i ,j,k;
+    for(i=0;ch[i]!='\0';i++){
+        for(j=0;j<=i;j++){
+            for(k=j;k<=i;k++){
+                cout<<ch[k];
+            }
+            cout<<endl;
+        }
+    }
+}
+
+output:
+a
+ab
+b
+abc
+bc
+c
+***********************************************************************************************************************************
+bool type
+# include<iostream>
+# include<string>
+using namespace std;
+bool check(string pin){
+    bool flag = true;
+    if(pin.length()!=4){
+        flag = false;
+    }
+    return flag;
+
+}
+int main(){
+    string pin;
+    cout<<"enter the pin";
+    cin>>pin;
+    if(check(pin)==1){
+        cout<<"pin accepted";
+    }
+    else{
+        cout<<"denied";
+    }
+
+}
+***************************************************************************************************************
+# include<iostream>
+using namespace std;
+int main(){
+    int p=1 ,q = 7,i,j,k=1;
+    for(int i=1 ;i<7;i++){
+        if(i%3==1){
+            cout<<" "<<" ";
+        }
+        else
+        cout<<"*"<<" ";
+    }
+    cout<<endl;
+    
+
+while(k<8){
+    if( k%2!=0){
+        while(p<=4){
+            for( j=1;j<=4;j++){
+                if( j== p)
+                cout<<"*";
+                else if (p==1 && j==4)
+                cout<<" "<<"*";
+                else
+                cout<<" "<<" ";
+            }
+            p++;
+            break;
+        }
+        k++;
+    }
+    if( k%2==0){
+        while(q>=5){
+            for( j=5;j<=7;j++){
+                if(j==q)
+                cout<<" "<<"*"<<" ";
+                else
+                cout<<" "<<" ";
+            }
+            cout<<endl;
+            q--;
+            break;
+        }
+        k++;
+        
+    }
+     }
+     cout<<endl;
+
+cout<<"HELLO";
+}
+
+******************************************************************************************************
+DIFF B/W CHAR ARRAY AND STRING
+ 1.)Char ka koi bhi kaam ' ' isme hi hogaa
+ String ka koi bhi kaam  " " isme hi hogaa
+ 
+2.)
+String mein ek baar mein bahut saare characters aa sakte h
+Char mein ek ek karke
+
+3.EXAMPLE OF CHAR ARRAY:
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    char str[1000] = {'h' ,'e','l','l','n','s','u','t'};
+    for (int i = 0; i < 9; i++)
+    {
+        cout << str[i] ;
+    }
+
+    return 0;
+}
+
+EXAMPLE OF STR ARRAY:
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string str[3] = { "hello world","nsut the great"};
+    for(int i=0;i<3;i++){
+    cout<<str[i];}
+
+    return 0;
+}
+
+
+
+*****************************************************************************************************
+input from the user getline(cin , name of string , terminator)
+
+......................................
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string str="hello,world";..............yeh ek word ban jata h " " ke andar
+    cout<<str;
+
+    return 0;
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+for more than one word we use array.
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string str[3] = { "hello","world"};
+    for(int i=0;i<3;i++){
+    cout<<str[i]<<endl;}
+
+    return 0;
+}
+
+output
+hello
+world
+
+******************************************************************************************************
+//convert string to int..
+# include<bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string str = "98765";
+    int num = 0;
+   
+    for (int i=0;i<str.size();i++){
+        
+        num = num*10 + str[i]-'0';
+        
+    }
+    cout<<"print the sum"<<endl;
+    cout<<num;
+}
+***********************************************************************************************************
+//convert int to string
+# include<bits\stdc++.h>
+using namespace std;
+int main(){
+    int num = 98765 ,rem;
+    string ans = to_string(num);
+    //ans = num;
+    for (int i=0 ;i<ans.size();i++){
+        cout<<ans[i];
+    }
+}
+************************************************************************************************************
+print the string individually..
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string str;
+    getline(cin, str);
+    for (int i = 0; i < str.size(); i++)
+    {
+        if (str[i] == ' ')
+            cout << endl;
+        else
+            cout << str[i];
+    }
+}
+
+input :my name is urvashi
+output :my
+name
+is
+urvashi
+
+*******************************************************************************
+deliminator
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string str;
+    getline(cin, str, '*');
+    for (int i = 0; i < str.size(); i++)
+    {
+        if (str[i] == ' ')
+            cout << endl;
+        else
+            cout << str[i];
+    }
+}
+input :my name is u rva*shi 
+ output:my
+name
+is
+u
+rva
+***************************************************************************
+//input: MY name is Sourabh
+//output: My name IS sourabh
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    getline(cin, s);
+    int count = 0;
+    for(int i=0;i<s.size();i++){
+        if(s[i]== ' '){
+            count++;
+            cout<<s[i];
+        }
+        else{
+            if(count%2==0){
+                char ch = toupper(s[i]);..........here ascii value is printed so we have to store it in
+                cout<<ch;                                 character varaible
+            }
+            else{
+                char ch = tolower(s[i]);
+                cout<<ch;
+            }
+        }
+    }
+    return 0;
+    
+}
+********************************************************************************************
+// convert string to array
+#include <bits\stdc++.h>
+using namespace std;
+int main()																											
+{
+    string s;
+    cout<<"enter the string :"<<endl;
+    getline(cin, s);
+    
+    vector<string> ans;
+    string word;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == ' ' )
+        {
+            ans.push_back(word);
+            word = "";
+        }
+
+        else
+        {
+            word = word + s[i];
+        }
+    }
+    ans .push_back(word);
+    cout<<"print the string :"<<endl;
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << endl;
+    }
+}
+
+output:
+enter the string :
+my name is urvashi
+print the string :
+my
+name
+is
+urvashi
+*********************************************************************************************
+ROTATION OF A STRING
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{   // general array
+    string s1 = "character";
+    int k;
+    cin >> k;
+    for (int i = (s1.size() - k); i < s1.size(); i++)
+    {
+        cout << s1[i];
+    }
+    for (int i = 0; i < (s1.size() - k); i++)
+    {
+        cout << s1[i];
+    }
+}
+// times the no of strings to be rotated anticlockwise
+// divided loop in to two half printed the last letter first..then other
+// rotation1: rcharacte , rotation2: ercharact
+// so printed er by taking loop from i=7 to s1.size
+// then printed charact by taking loop from i=0 to i = 7
+// int k = 2;
+//  for(int i = 7 ; i<s1.size() ;i++){
+//        cout<<s1[i];
+//  }
+//  for(int i = 0 ;i<7 ;i++){
+//      cout<<s1[i];
+//  }
+
+// }
+*******************************************************************************************************
+// insertion of an element in an array
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    int arr[100] = {1, 2, 3, 4, 5};
+    int i, k = 7; // at index 2
+    for (i = 4; i >= 2; i--)           // general form for( i=4 ; i>=k ; i++)
+    {
+        arr[i + 1] = arr[i];
+    }                            //loop exit at i=1...
+    arr[i + 1] = k; // inserting element at index 2...arr[i+1]=1+1=2
+    for (i = 0; i < 6; i++)
+    {
+        cout << arr[i];
+    }
+}
+
+output :  127345
+***************************************************************************************************************
+// deletion of an element in an array
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    int arr[100] = {1, 2, 3, 4, 5};
+    int i, k = 2; // at index 2..removing element 3 at index 2
+    for (i = k ; i<5 ; i++)
+    {
+        arr[i] = arr[i+1];
+    }
+    
+    for (i = 0; i < 4; i++)
+    {
+        cout << arr[i];
+    }
+}
+output: 1245
+******************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+

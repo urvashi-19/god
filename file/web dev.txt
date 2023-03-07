@@ -1,0 +1,963 @@
+fitness gym
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Fitness</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background: url('pic.jpg');
+        color: white;
+
+
+    }
+
+    .left {
+        position: absolute;
+        left: 34px;
+        top: 20px;
+        display: inline-block;
+
+
+    }
+
+    .mid {
+        display: inline-block;
+        display: block;
+
+        width: 40%;
+        margin: 34px auto;
+        /* three condtion for margin 
+        1. should have display block-size
+        2. width honi chahiye */
+
+
+    }
+
+    .right {
+        position: absolute;
+        right: 34px;
+        top: 20px;
+
+        display: inline-block;
+
+
+    }
+
+    .navbar {
+        display: inline-block;
+    }
+
+    .navbar li {
+
+        display: inline-block;
+        font-size: 25px;
+    }
+
+    .navbar li a {
+        color: white;
+        text-decoration: none;
+        padding: 34px 23px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        color: grey;
+        text-decoration: underline;
+    }
+
+    .left img {
+        width: 110px;
+        height: 110px;
+        filter: invert(82%);
+
+    }
+
+    .left div {
+        text-align: center;
+        line-height: 45px;
+        font-size: 21px;
+    }
+
+    .btn {
+        font-family: 'Courier New', Courier, monospace;
+        margin: 0px 9px;
+        background-color: black;
+        color: white;
+        padding: 4px 4px;
+        border: 3px solid grey;
+        border-radius: 10px;
+        font-size: 20;
+        cursor: pointer;
+
+
+    }
+
+    .btn:hover {
+        background: rgb(194, 114, 114);
+    }
+
+    .container {
+        border: 5px solid green;
+        margin: 50px 50px;
+        padding: 30px 65px;
+        width: 37%;
+        border-radius: 25px;
+        border-color: white;
+    }
+
+    .form-group input {
+        text-align: center;
+        display: block;
+        width: 200px;
+        padding: 6px;
+        border: 2px solid black;
+        margin: 5px auto;
+        font-size: 19px;
+        border-radius: 4px;
+    }
+
+    .container h1 {
+        text-align: center;
+    }
+
+    .container button {
+        display: block;
+
+        margin: 50px auto;
+
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="left">
+            <img src="pics.jpg" alt="">
+            <div> fitness club</div>
+
+        </div>
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Fitness Calculator</li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+
+        </div>
+
+        <div class="right">
+            <button class="btn">Call us NOw</button>
+            <button class="btn">Email Us</button>
+
+        </div>
+    </header>
+    <div class="container">
+        <h1>join the best fitness club</h1>
+        <form action="noaction.php">
+            <div class="form-group">
+                <input type="text" placeholder="enter your name">
+            </div>
+            <div class="form-group">
+                <input type="number" placeholder="enter your age">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="enter your gender">
+            </div>
+            <button class="btn">submit now</button>
+
+
+            </class>
+        </form>
+
+    </div>
+</body>
+
+</html>
+**************************************************************************
+ADMISSION LETTER;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(210, 219, 144);
+             margin:0px;
+            padding:0px;
+            
+        }
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .ul li a {
+            text-decoration: none;
+            padding: 7px 4px;
+            margin: 4px 4px;
+            border: 3px solid rgb(108, 110, 105);
+            font-size: 1.3rem;
+            cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            background-color: white;
+            border-radius: 2px;
+        }
+        .ul li a:hover{
+            background-color: rgb(186, 110, 186);
+            font-size: 1.8rem;
+            color:maroon;
+            border-radius: 5px;
+            /* adds line while hovering */
+            text-decoration: underline;
+        }
+        .para{
+            border:5px solid rgb(59, 30, 30);
+            padding : 50px 4px;
+            margin : 95px 5px;
+            background-color: cornflowerblue;
+            font-size: 1.5rem;
+            height :250px;
+        }
+        .lorem{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+        }
+        .header{
+            border : 2px solid white;
+            background-color: beige;
+            
+        }
+         .header:hover{
+            background-color: coral;
+            border-radius: 4px;
+            font-size: 2.9rem ;
+        }
+        .change{
+            /* moves the calss to the right */
+            float:right; 
+            /* display flex alligns to one line */
+            display:flex; 
+            position: absolute;
+            right:45px; 
+            top:75px;
+            
+            
+        }
+        .btn{
+           
+            padding :8px 17px;
+            margin:4px 9px;
+            border :3px solid rgb(105, 140, 165);
+            background-color: darksalmon;
+            font-size:1.4rem;
+
+            
+        }
+        .btn:hover{
+            background-color: dodgerblue;
+            font-size: 1.7rem;
+            text-decoration:underline;
+
+        }
+        .section{
+            
+            display:flex;
+            font-size: 1.8rem;
+            padding:5px 5px;
+            margin :3px 3px;
+        }
+        .content1{
+            background-color: blanchedalmond;
+            padding : 60px 12px;
+            margin :55px 55px;
+            width:700px;
+        }
+        .content2{
+            background-color: rgb(23, 154, 141);
+            padding : 60px 12px;
+            margin :55px 55px;
+            width:890px
+        }
+        .content3{
+            background-color: blanchedalmond;
+            padding :60px 12px;
+            margin :55px 55px;
+            width:700px
+
+        }
+        .container{
+            border:4px solid grey;
+            height:344px;
+            background-color: rgb(216, 186, 231);
+        }
+        .fig{
+           
+            padding :7px 25px;
+            margin :6px 650px;
+           
+            
+        }
+        .fig input{
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+        .butn{
+            padding :7px 25px;
+            margin :6px 674px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+           background-color: lawngreen;
+           width:16%;
+           border-radius: 4px;
+           
+            
+        }
+        .butn:hover{
+            background-color: cornsilk;
+            font-size: 1.9rem;;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <header class="heading">
+        <div class="class" id="container" align="center">
+            <h1><u>Welcome to my web page</u></h1>
+        </div>
+        <div class="content">
+
+            <ul class=" ul">
+                <li><a href="#" > Home</a></li>
+                <li><a href="#"> Contact</a></li>
+                <li><a href="#"> Services</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="change">
+            <button class="btn"> call us</button><br><br>
+            <button class="btn">whatsapp us</button></div>
+
+        </div>
+    </header>
+    <div class="para">
+        <h1 class="header" align = "center"><u>Introduction</u></h1></h1>
+        <p class="lorem" align = "center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem perspiciatis aliquam provident placeat reiciendis tempora voluptatum deleniti autem amet obcaecati ratione sint culpa unde, exercitationem facilis labore atque neque modi excepturi eos quo. Nulla?.</p>
+    </div>
+    <section class="section">
+        <div class="content1">
+            <h1><u>PHYSICS</u></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti a cupiditate non qui at adipisci dolor blanditiis laudantium.</p>
+        </div>
+        <div class="content2">
+            <h1><U>CHEMISTRY</U></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti a cupiditate non qui at adipisci dolor blanditiis laudantium.</p>
+        </div>
+        <div class="content3">
+            <h1><U>MATHEMATICS</U></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti a cupiditate non qui at adipisci dolor blanditiis laudantium.</p>
+        </div>
+    </section>
+    <section class="container">
+        <form action="noaction.php">
+        <h1 class="form" align="center" ><u>Fill The Form</u></h1>
+        <div class="fig">
+            <input type="text" placeholder="your name"></input>
+        </div>
+        <div class="fig">
+            <input type="number" placeholder="your mobile number"></input>
+        </div>
+        <div class="fig">
+            <input type="alphabet" placeholder="from where"></input>
+        </div>
+        <button class="butn" > Submit</button>
+    </form>
+
+    </section>
+    
+
+
+</body>
+
+</html>
+***************************************************************************
+OVERLAY EFFECT
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        *{
+            background-color: rgb(225, 218, 227);
+        }
+
+        .yu img {
+
+            position: relative;
+            background-color: black;
+
+            top: -1px;
+
+            height: 296px;
+            width: 346px;
+            
+        }
+
+        .yu img:hover {
+
+            opacity: 0.2;
+            transition-duration: 2s;
+            TRANSFORM:rotate(45deg);
+            }
+
+        .yu {
+            display: flex;
+            justify-content: center;}
+        .head{
+            position :relative;
+            left: 103px;
+            top: 147px;
+            background-color: black;
+            color: white;
+            width:33%;
+            
+        }
+
+           
+            .container{
+                border:2px solid black;
+                background-color: black;
+                position:relative;
+                top:150px;
+                
+            }
+    </style>
+</head>
+
+<body>
+    <section class="yu">
+        <div class="container">
+        <h1 class="head">FLOWER</h1>
+        <img src="https://www.w3resource.com/html-css-exercise/html-css-practical-exercises/flower-2.jpeg"
+            class="image" />
+        </div>
+    </section>
+
+</body>
+
+</html>
+****************************************************************************
+JUSTIFY-CONTENT: BRINGS TEXT AT TOP
+ALIGN-CONTENT:BRINGS TEXT AT THE MID OF PAGE
+
+
+****************************************************************************
+media queries
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+    .box{
+        background-color: red;
+        color:white;
+        text-align: center;
+        font-size: 72px;
+         display:none;    /* FIRST DISPLAY SHOULD BE DONE NONE */
+    }
+        @media (min-width:300px){
+            #item1{
+                display:block;
+                background-color: blue;
+            }
+        }
+        @media (min-width:300px) and (max-width:500px){
+            #item2{
+                display:block;  /*THEN HERE DISPLAY IS DONE BLOCL*/
+                background-color: rebeccapurple;
+            }
+        }
+        @media (min-width:500px) and(max-width:800px){
+            #item3{
+                display:block;  /*THEN HERE DISPLAY IS DONE BLOCL*/
+                background-color: red;
+            }
+        }
+        @media (min-width:800px) and (max-width:1200px){
+            #item4{display:block; /*THEN HERE DISPLAY IS DONE BLOCL*/
+                background-color: green;
+            }
+        }
+</style>
+    
+<body>
+    <div class="box" id="item1">iphone hu mwin ek</div>
+    <div class="box" id="item2">tablet hu mwin ek</div>
+    <div class="box" id="item3">computer hu mwin ek</div>
+    <div class="box" id="item4">screen hu mwin ek</div>
+    
+</body>
+</html>
+
+****************************************************************************
+NTH CHILD AND PSEUDO SELECTORS:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        background-color: rgb(156, 113, 57);
+      border: 2px solid rgb(75, 163, 215);
+      padding: 10px 10px;
+      display: block;
+      width:233px;
+      margin:auto;
+
+    }
+    header{
+      background-color: antiquewhite;
+      border: 2px solid green;
+      color:black;
+      text-align: center;
+      font-size: 40px;
+      width:338px;
+      margin: 25px 574px;}
+    
+    div li{
+        background-color: rgb(219, 203, 203);
+        border:5px solid grey;
+        border-radius:2px;
+        margin:10px 2px;
+        padding:5px 5px;
+    }
+    input[type="text"]{
+        background-color: rgb(118, 14, 14);
+        border:5px solid rgb(128, 128, 128);
+    }
+    h1 a{
+        text-decoration: none;
+    }
+    a[target]{
+        
+        color:violet
+    }
+    a[target='_self']{
+        color:skyblue;
+    }
+    input[type='email']{
+        color: aquamarine;
+        background-color: rgb(219, 147, 39);
+    }
+        
+    li:nth-child(2n+1){
+        color: rgb(83, 236, 13);
+    }
+    li:nth-child(2n){
+        color: rgb(182, 7, 57);
+    }
+    li:nth-child(even){
+        background-color: bisque;
+    }
+    li:nth-child(odd){
+        background-color: rgb(205, 157, 139);
+    }
+    ul{
+        padding:0px 5px;
+        display:block;
+        width:80%;
+        margin:20px,20px;
+    }
+    .btn:hover{
+        background-color: blue;
+        cursor:pointer;
+        color:darkturquoise;
+    }
+    input:hover{
+        background-color: rgb(89, 201, 37);
+        cursor:pointer;
+        color:rgb(101, 17, 66);
+
+    }
+
+    
+</style>
+<body>
+    <header>this is my page</header>
+    <div class="container">
+        <h1><a href="http://google.com" target="_blank">go to google</a> </h1>
+        <h1><a href="http://facebook.com" target="_self">go to facebook</a> </h1>
+        <form action="noactio.php" class="form-action">
+            <input type="text" placeholder=" text">
+            <input type="number" placeholder="number">
+            <input type="email" placeholder="email">
+            <button class="btn">submit now</button>
+        </form>
+        <ul>
+            <li class="box" id="item1">item1</li>
+            <li class="box" id="item2">item2</li>
+            <li class="box" id="item3">item3</li>
+            <li class="box" id="item4">item4</li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+
+******************************************************************************
+with background and flex:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background-color: black;
+            color:white;
+            background:url('web.jpg');
+           
+           
+            
+        }
+      
+
+        section{
+            display:flex;
+            height: 344px;
+            flex-direction: column;
+            margin: 3px 374px;
+            align-items: center;
+            
+            justify-content: center;
+            font-family: 'Playball', cursive;
+        }
+        /* section::before{
+            content:"this is my content"
+        } */
+        
+        /* .navigation li{
+            display: inline-block;   list can be allign in an col using this method also */
+
+          /* }         */
+          .navigation{
+              display: flex;
+              list-style: none;
+            }
+        .items{
+            margin:10px 10px;
+        }
+        h1{
+            font-size: 4rem;
+        }
+        .hover:hover{
+            color: darkkhaki;
+            background-color: peachpuff;
+        }
+        a[target='_blank']{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="navigation">
+                <li class="items"><a href="http://www.google.com" target="_blank">go to google</a></li>
+                <li class="items">about</li>
+                <li class="items">services</li>
+                <li class="items">contact us</li>
+                <button class="hover">submit now</button>
+            </ul>
+        </nav>
+    </header>
+        <section>
+            <h1>welcome to coding world</h1>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, atque beatae? Omnis, nemo! Cupiditate voluptate beatae nulla consequatur officia repudiandae id et sapiente aliquam modi, rerum nisi dolores sed saepe.</p>
+        </section>
+   
+    
+</body>
+</html>
+**********************************************************************************************************************************************
+box shadow and text shadow
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        .container{
+        display: flex;
+        }
+        
+        
+        .box{
+            margin:23px 10px;
+            padding :10px 10px;
+            border:5px solid red;
+        
+            box-shadow: -5px -5px 5px green;
+            
+            /* box-shadow: inset 10px 10px rgb(137, 127, 154); */
+            
+        }
+        h1{
+            text-shadow: 3px 4px gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>card1</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ex quaerat corrupti quas cum, illo provident, inventore eos natus maxime, ratione similique eveniet odio excepturi impedit esse possimus quod vitae? Dolorum voluptatem quis commodi.</p>
+        </div>
+        <div class="box">
+            <h1>card2</h1>
+            <p1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus corporis aperiam dolor debitis nostrum quibusdam asperiores, beatae culpa?</p1>
+        </div>
+        <div class="box">
+            <h1>card3</h1>
+            <p1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis pariatur nesciunt ratione ipsam doloribus aliquam illo aliquid at! Quibusdam officiis similique cum, quod, earum quam voluptate sunt, non illo recusandae doloremque ad asperiores modi.</p1>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
+********************************************************************************************************************************************************
+animations
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: greenyellow;
+        }
+        .box{
+            background-color: green;
+            width:250px;
+            height:250px;
+            position:relative;
+            /* animation-name: urvashi; */
+            animation-name: urvashi1;
+            animation-duration:8s ;
+            animation-iteration-count: 3;
+            /* animation-fill-mode: alternate;
+            animation-timing-function: ease-in;
+            /* animation-delay: 2s; */
+            /* animation-direction: reverse;  */
+            /* animation short hand properties;
+            animation: animation-name animation-duration animation-timing -function animation-delay animation-iteration-count animation-fill mode */
+            animation:urvashi 5s ease-in 1s 12 backward;
+           
+             
+        }
+        @keyframes urvashi1{
+            0%{
+            top:0px;
+            left:0px;
+            }
+            
+            25%{
+            top: 250px;
+            left:0px;
+            }
+            75%{
+            top: 250px;
+            left:250px;
+            }
+            100%{
+             top:250px;
+             left:0px;
+            }
+        }
+        @keyframes urvashi{
+            from{
+                width:200px;
+            }
+            to{
+              width:1000px;  
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            This is a box
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
+***********************************************************************************************************************************************
+transition in css:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: darkseagreen;
+        }
+        #box{
+            display:flex;
+            height:200px;
+            width:200px;
+            background-color: rgb(19, 178, 170);
+            justify-content: center;
+            align-items: center;
+            /* transition-property:background-color;
+            transition-duration: 1s;
+            transition-timing-function:ease-in-out;
+            transform-delay: 2s;
+            short hand property in one-liner. */
+            /* transition:background-color 1s ease-in-out .3s; */
+             transition:all 1s ease-in-out .3s;
+
+            
+            
+
+        }
+        #box:hover{
+            background-color:rgb(199, 22, 40);
+            height: 400px;
+            width: 300px;
+            border-radius: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>This is css transition Tutorial</h3>
+    <div class="container">
+        <div id="box">
+            This Is My Box
+        </div>
+    </div>
+    
+</body>
+</html>
+**********************************************************************************************************************************
+transform property in css:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+
+        }
+        .container{
+            height:80vh;
+            background-color: burlywood;
+            display:flex;
+           
+            align-items: center;
+            justify-content: center;
+
+        }
+        .box{
+            background-color: brown;
+            border:2px solid black;
+            border-radius: 8px;
+            height:200px;
+            width:400px;
+            transition:all 0.5 ease-in;
+           
+
+        }
+        .box:hover{
+            /* transform: rotate(360deg); */
+            /* transform:skew(40deg); */
+            /* transform:scale(1.75); */
+            /* transform: translateX(123px);
+            transform: translateY(123px); */
+            transform: translate(123px,123px);
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            this is a box
+        </div>
+    </div>
+    
+</body>
+</html>
+**************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

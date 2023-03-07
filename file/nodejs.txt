@@ -1,0 +1,1094 @@
+uploading content of other text(del.txt) file in nodejs:
+
+const fs = require("fs");
+const text = fs.readFileSync("del.txt","utf-8");
+console.log(text);
+*****************************************************************************
+
+creating server:
+
+const http = require('http')
+const fs = require('fs')
+const fileContent = fs.readFileSync('kd.html')
+const server = http.createServer((req,res)=>{
+    res.writeHead(200,{'content-type':'text/html'});
+    res.end(fileContent)
+})
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+***************************************************************************
+passing the module:nfrom mod.js to index.js
+
+mod.js:
+
+console.log("this is module")
+function average(arr){
+    let sum=0;
+    arr.forEach(element =>{
+        sum+=element
+    })
+    return sum/arr.length;
+}
+// module.exports = average;//exporting the single object module
+module.exports = {
+    avg : average,
+    name:"harry",
+    repo:"github"
+}//exporting all the obkects
+
+//module.exports.name = "harry"//passing  as objects
+
+index.js:
+
+// console.log("this is a index.js");
+// const average = require("./mod");//name of module object wguvh are we accesing the like average nor we use mod to acees all
+// console.log(average([3,4,5]));//calling module
+const mod = require("./mod");
+console.log(mod.avg([3,4])) //by exporting all we can use mod.__
+
+// console.log(mod.name); //as a objects
+
+************************************************************************************************************************
+CUSTOM SERVICES
+const http = require('http');
+const fs = require('fs');
+
+
+const hostname = '127.0.0.1';
+const port = 80;
+const home = fs.readFileSync('./index.html');
+const about = fs.readFileSync('./about.html');
+const contact = fs.readFileSync('./contact.html');
+const services = fs.readFileSync('./services.html');
+
+const server = http.createServer((req, res) => {
+    console.log(req.url);                          //SENDING OUR REQUEST TO SERVER IN THE FORM OF VARIABLE URL
+    url = req.url;
+    res.statusCode = 200;  //SITE IS WORKING
+    res.setHeader('Content-Type', 'text/html');   //TELLS SERVER TO DISPLAY THE CONTENT ACCORDING TO REQUESTS 
+    if (url == '/') { 
+        res.end(home);
+    }
+    
+
+    else if (url == '/about') {
+        res.end(about);
+    }
+    else if (url == '/services') {
+        res.end(services);
+    }
+    else if (url == '/contact') {
+        res.end(contact);
+    }
+
+});
+
+
+
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+
+.HTML FILE
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>this is home page</title>
+    <style>
+        li{
+            margin:23px;
+            list-style:none;
+
+        }
+        ul{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="item"><a href = '/home'>Home</a></li>
+            <li class="item"><a href ='/about'>About</a></li>
+            <li class="item"><a href ='/services'>Services</a></li>
+            <li class="item"><a href ='/contact'>Contact</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+
+*************************************************************************************************************************************************************************************
+CREATING AND SAVING FILE:
+
+*******************************************************************EXP.JS:************************
+
+// const express = require("express");
+// const path = require("path");
+// const fs = require("fs");
+// const app = express();
+// const port = 80;
+// app.use('/form', express.static('form')) // For serving static files
+// app.use(express.urlencoded())
+// app.set('view engine','pug')
+
+const fs = require('fs');
+const express = require("express");
+const path = require('path');
+const app = express();
+const port = 80;
+
+app.use('/static',express.static('static'))
+app.use(express.urlencoded())                                    //used for transfering the data user have submitted
+
+app.set('view engine','pug')
+app.set('views',path.join(__dirname ,'views'))
+
+app.get("/demo" ,(req, res)=>{ 
+    res.status(200).render('demo',{title:'gym',message:'gym is open'});
+});
+ 
+app.get('/', (req, res)=>{ 
+    res.status(200).render('form.pug');
+});
+
+// app.post('/submit',(req,res)=>{
+//     res.end("form has been submitted suceesfully");
+// })
+// app.post('/',(req,res)=>{
+//     console.log(req.body);
+// })
+
+
+app.post('/submit',(req,res)=>{
+    var name=req.body.name;
+    var place = req.body.place;
+    var mob = req.body.mob;
+
+    
+    let outputToWrite = `the name of the client is ${name}, ${place} from, ${mob} mob.no `
+    fs.writeFileSync('output.txt', outputToWrite)
+    const params = ("Your form has been submitted successfully");
+    res.send(params);
+
+
+})
+
+app.listen(port, ()=>{
+    console.log(`The application started successfully on port ${port}`);
+});
+
+*******************************************************************************FORM.HTML*************************************************************************************
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        .container {
+            border: 2px solid grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 45vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="/submit" method="POST">
+
+            NAME: <input type="text" name="name" placeholder="name"><br>
+            PLACE:<input type="text" name="place" placeholder="PLACE"><br>
+            MOB: <input type="NUMBER" name="mob" placeholder="MOB.NO"><br>
+            <button class="btn">Submitnow</button>
+        </form>
+        
+    </div>
+
+</body>
+
+</html>
+
+*******************************************************************************FORM.PUG*********************************************************************************************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+style
+     include formcss.css
+
+</head>
+<body>
+    <div class="container">
+        <form action="/submit" method="POST">
+            <input type ="text"  name = "name"placeholder="name"><br>
+            <input type ="text"  name = "place"placeholder="PLACE"><br>
+            <input type ="NUMBER" name = "mob" placeholder="MOB.NO"><br>
+            <button class="btn">Submitnow</button>
+        </form>
+    </div>
+</body>
+</html>
+
+**********************************************************************************FORMCSS.CSS******************************************************
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid grey;
+    height :45vh;
+}
+
+****************************************************************************************************************************************************
+CONTACT FORM:
+
+******************************************************************APP.JS*******************************************************************************
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+const app = express();
+const port = 80;
+
+app.use('/static', express.static('static')) // For serving static files
+app.use(express.urlencoded())
+app.set('view engine', 'pug') // Set the template engine as pug
+app.set('views', path.join(__dirname, 'views')) // Set the views director
+// app.get('/', (req, res)=>{
+   
+//     const params = {}
+//     res.status(200).render('home.pug', params);
+// })
+ app.get('/', (req, res)=>{
+   
+    const params = {}
+    res.status(200).render('app.pug', params);
+})
+app.get('/contact', (req, res)=>{
+   
+    
+    res.status(200).render('forms.pug');
+    
+ })
+ app.post('/submit',(req,res)=>{
+    
+    const params = ("Your form has been submitted successfully");
+    res.send(params);
+
+
+})
+ app.listen(port, ()=>{
+    console.log(`The application started successfully on port ${port}`);
+});
+
+*********************************************************************************************APP.PUG**************************************************************
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    style 
+         include app.css
+</head>
+
+<body>
+    <header class="heading">
+        <div class="class" id="container" align="center">
+            <h1><u>Welcome to my web page</u></h1>
+        </div>
+        <div class="content">
+
+            <ul class=" ul">
+                <li><a href="#" > Home</a></li>
+                <li><a href="/contact"> Contact</a></li>
+                <li><a href="#"> Services</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="change">
+            <button class="btn"> call us</button><br><br>
+            <button class="btn">whatsapp us</button></div>
+
+        </div>
+    </header>
+    <div class="para">
+        <h1 class="header" align = "center"><u>Introduction</u></h1></h1>
+        <p class="lorem" align = "center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem perspiciatis aliquam provident placeat reiciendis tempora voluptatum deleniti autem amet obcaecati ratione sint culpa unde, exercitationem facilis labore atque neque modi excepturi eos quo. Nulla?.</p>
+    </div>
+    <section class="section">
+        <div class="content1">
+            <h1><u>PHYSICS</u></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti a cupiditate non qui at adipisci dolor blanditiis laudantium.</p>
+        </div>
+        <div class="content2">
+            <h1><U>CHEMISTRY</U></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti a cupiditate non qui at adipisci dolor blanditiis laudantium.</p>
+        </div>
+        <div class="content3">
+            <h1><U>MATHEMATICS</U></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti a cupiditate non qui at adipisci dolor blanditiis laudantium.</p>
+        </div>
+    </section>
+    <section class="container">
+        <form action="noaction.php">
+        <h1 class="form" align="center" ><u>Fill The Form</u></h1>
+        <div class="fig">
+            <input type="text" placeholder="your name"></input>
+        </div>
+        <div class="fig">
+            <input type="number" placeholder="your mobile number"></input>
+        </div>
+        <div class="fig">
+            <input type="alphabet" placeholder="from where"></input>
+        </div>
+        <button class="butn" > Submit</button>
+    </form>
+
+    </section>
+    
+
+
+</body>
+
+</html>
+
+***********************************************************************************APP.CSS*****************************************************
+
+
+body{
+    background-color: rgb(210, 219, 144);
+     margin:0px;
+    padding:0px;
+    
+}
+ul {
+    list-style: none;
+    display: flex;
+}
+
+.ul li a {
+    text-decoration: none;
+    padding: 7px 4px;
+    margin: 4px 4px;
+    border: 3px solid rgb(108, 110, 105);
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: white;
+    border-radius: 2px;
+}
+.ul li a:hover{
+    background-color: rgb(186, 110, 186);
+    font-size: 1.8rem;
+    color:maroon;
+    border-radius: 5px;
+    /* adds line while hovering */
+    text-decoration: underline;
+}
+.para{
+    border:5px solid rgb(59, 30, 30);
+    padding : 50px 4px;
+    margin : 95px 5px;
+    background-color: cornflowerblue;
+    font-size: 1.5rem;
+    height :250px;
+}
+.lorem{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+}
+.header{
+    border : 2px solid white;
+    background-color: beige;
+    
+}
+ .header:hover{
+    background-color: coral;
+    border-radius: 4px;
+    font-size: 2.9rem ;
+}
+.change{
+    /* moves the calss to the right */
+    float:right; 
+    /* display flex alligns to one line */
+    display:flex; 
+    position: absolute;
+    right:45px; 
+    top:75px;
+    
+    
+}
+.btn{
+   
+    padding :8px 17px;
+    margin:4px 9px;
+    border :3px solid rgb(105, 140, 165);
+    background-color: darksalmon;
+    font-size:1.4rem;
+
+    
+}
+.btn:hover{
+    background-color: dodgerblue;
+    font-size: 1.7rem;
+    text-decoration:underline;
+
+}
+.section{
+    
+    display:flex;
+    font-size: 1.8rem;
+    padding:5px 5px;
+    margin :3px 3px;
+}
+.content1{
+    background-color: blanchedalmond;
+    padding : 60px 12px;
+    margin :55px 55px;
+    width:700px;
+}
+.content2{
+    background-color: rgb(23, 154, 141);
+    padding : 60px 12px;
+    margin :55px 55px;
+    width:890px
+}
+.content3{
+    background-color: blanchedalmond;
+    padding :60px 12px;
+    margin :55px 55px;
+    width:700px
+
+}
+.container{
+    border:4px solid grey;
+    height:344px;
+    background-color: rgb(216, 186, 231);
+}
+.fig{
+   
+    padding :7px 25px;
+    margin :6px 650px;
+   
+    
+}
+.fig input{
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+.butn{
+    padding :7px 25px;
+    margin :6px 674px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+   background-color: lawngreen;
+   width:16%;
+   border-radius: 4px;
+   
+    
+}
+.butn:hover{
+    background-color: cornsilk;
+    font-size: 1.9rem;;
+}
+
+***********************************************************************************FORM.PUG*************************************************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+style
+     include forms.css
+
+</head>
+<body>
+    <div class="container">
+        <form action="/submit" method="POST">
+            <input type ="text"  name = "name"placeholder="name"><br>
+            <input type ="text"  name = "place"placeholder="PLACE"><br>
+            <input type ="NUMBER" name = "mob" placeholder="MOB.NO"><br>
+            <button class="btn">Submitnow</button>
+        </form>
+    </div>
+</body>
+</html>
+
+*************************************************************************FORM.CSS***********************************************************************
+
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid grey;
+    height :45vh;
+}
+
+************************************************************************APP.JS.MONGODB.*********************************************************************
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+const app = express();
+var mongoose = require('mongoose');
+const bodyparser = require("body-parser");
+// const { stringify } = require("querystring");
+mongoose.connect('mongodb://localhost/urvashiblog',{useNewUrlParser:true});
+const port = 80;
+ var contactschema = new mongoose.Schema({
+    name:String,
+    place:String,
+    mob:String
+});
+var contact = mongoose.model('contact',contactschema);
+
+app.use('/static', express.static('static')) // For serving static files
+app.use(express.urlencoded())
+app.set('view engine', 'pug') // Set the template engine as pug
+app.set('views', path.join(__dirname, 'views')) // Set the views director
+
+ app.get('/', (req, res)=>{
+   
+    const params = {}
+    res.status(200).render('app.pug', params);
+})
+app.get('/contact', (req, res)=>{
+   
+    
+    res.status(200).render('forms.pug');
+    
+ })
+   
+
+app.post('/submit',(req,res)=>{
+    var myData = new contact(req.body);
+    myData.save().then(()=>{
+                    res.send("submitted") 
+    }).catch(()=>{
+       res.status(404).send("not saved")
+    });
+})
+ app.listen(port, ()=>{
+    console.log(`The application started successfully on port ${port}`);
+});
+*******************************************************************************************************************************************************************
+history
+                                                          cc.pug
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>Document</title>
+    style
+        include css.css
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="combine">
+                <div class="logo">
+                    <h1 class="animated infinite heartBeat">MY INDIA</h1>
+                </div>
+                <div class="menu">
+
+                    <a href="#">HOME</a>
+                    <a href="#">GALLERY</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT US</a>
+
+                </div>
+            </div>
+        </nav>
+        <main class="main">
+            <div class="head">
+                <h1 class="tour; animated lightSpeedIn " style="color:crimson ; text-shadow: 9px 9px 9px black;">TOURISM
+                </h1>
+            </div>
+            <section class="sec">
+                <marquee scrollamount="15">
+                    <h1 id="welcome" style="color:mediumseagreen ;">WELCOME TO INDIA </h1>
+                </marquee>
+                <h2 id="do">DO VISIT THE FOLLOWING PLACES <span class="change_content">| </span> </h2>
+
+                <div class="button">
+                    <button class="btn1 "><a href="/login">Login</a></button>
+                    <button class="btn2 ">Sign In</button>
+                </div>
+
+            </section>
+            <section class="sec1">
+                <div class="container1">
+                    <div class="tm " id="tj">
+                        <h1 style="text-shadow: 5px 5px 5px black;">
+                            <h1>TAJ MAHAL</h1>
+                            <img src="./static/taj.jpg">
+                        </h1>
+
+
+                    </div>
+                    <div class="tm">
+                        <h1 id="h1" style="color:darkred ; text-shadow: 5px 5px 5px black;">CONTENT</h1>
+                        <p style="color:white ;font-size: 33px; ">The Taj Mahal, is an Islamic ivory-white marble  
+                            | mausoleum on the right bank of the river Yamuna in the Indian city of Agra.It was
+                            | commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favourite
+                            | wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.It is a masterpiece of
+                            | architectural style in conception, treatment and execution and has unique aesthetic
+                            | qualities in balance, symmetry and harmonious blending of various elements.</p>
+                    </div>
+
+
+
+                </div>
+                <div class="container2">
+                    <div class="rf" id="rff" style="text-shadow: 5px 5px 5px black;">
+                        <h1>REDFORT</h1>
+                        <img src="./static/fort.jpg">
+                    </div>
+                    <div class="rf">
+                        <h1 style="color:darkred; text-shadow: 5px 5px 5px black;">CONTENT</h1>
+                        <p style="color:white;font-size: 33px ; ">Red Fort, also called Lal Qalʿah, also spelled Lal
+                            | Kila or Lal Qila, Mughal fort in Old Delhi, India. It was built by Shah Jahān in the
+                            | mid-17th century and remains a major tourist attraction. The fort was designated a UNESCO
+                            | World Heritage site in 2007.The fort’s massive red sandstone walls,which stand 75 feet (23
+                            | metres) high, enclose a complex of palaces and entertainment halls,projecting balconies,
+                            | baths and indoor canals, and geometrical gardens, as well as an ornate mosque. </p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </header>
+
+
+</body>
+
+</html>
+*****************************************************************************************************************************************************
+                                                            form.pug
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>Document</title>
+style
+     include form.css
+
+</head>
+<body>
+   
+    
+    <div class="container">
+        <form action="/submit" method="POST">
+    
+    <div class="head">
+        <h1 align="center" class="h1 ; animated infinite heartBeat "><u>SUBMIT THE FORM </u></h1>
+        </div>
+        <div class="up">
+            <input type ="text" class="form " name ="place"  id="name" placeholder="name"><br>
+            <input type ="text" class="form "  name = "place"placeholder="PLACE"><br>
+            <input type ="NUMBER" class="form"  name = "mob" placeholder="MOB.NO"><br>
+            <button class="btn"  >Submit Now</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>
+*************************************************************************************************************************************************************
+                                                               css.css
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  background-image: url('./static/shree.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* header {
+  width: 100%;
+  height: 100vh;
+} */
+.nav {
+  background-color: #9b9d9e;
+  opacity: 0.6;
+  width: 100%;
+  height: 70px;
+  text-shadow: 5px 5px 5px black;
+}
+
+
+nav h1.tour {
+  font-weight: bold;
+  color:darkorchid;
+  font-size: 14vh;
+  text-shadow: 4px 4px 4px black;
+
+}
+#welcome{
+ 
+  
+
+  font-size: 9vh;
+  text-shadow: 0px 0px 4px black;
+  padding: 30px;
+  
+
+}
+
+
+
+.combine {
+  display: flex;
+}
+
+nav .logo {
+  position: absolute;
+  color: blue;
+  font-weight: bold;
+  font-size: 2.5vh;
+  left: 5%;
+
+  padding: 23px 2px;
+}
+
+nav .logo:hover {
+  color: white;
+  cursor: pointer;
+}
+
+nav .menu a:first-child {
+  color: darkmagenta;
+}
+
+nav .menu {
+  display: flex;
+  position: absolute;
+  right: 4%;
+  margin: 2px 20px;
+  padding: 23px 20px;
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+nav .menu a {
+  text-decoration: none;
+  padding: 2px 20px;
+}
+
+nav .menu a:hover {
+  color: white;
+}
+
+
+
+main {
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.head {
+  color: white;
+  width: 100%;
+  height: 100px;
+  font-size: 45px;
+  margin: 45px 1px;
+  padding: 5px 2px;
+
+}
+
+
+#do {
+  font-size: 4vh;
+  text-shadow: 0px 0px 4px black;
+  padding: 25px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  text-decoration: none;
+}
+
+.btn1 {
+  font-size: 40px;
+  background-color: darkgreen;
+  color: white;
+  border: 2px solid black;
+  font-weight: bolder;
+  width: 20%;
+  text-decoration: none;
+}
+
+.btn1:hover {
+  background-color: white;
+  color: black;
+  font-size: 50px;
+}
+
+.btn2 {
+  font-size: 40px;
+  background-color: white;
+  color: darkgreen;
+  border: 2px solid black;
+  font-weight: bolder;
+  padding: 5px 5px;
+}
+
+.btn2:hover {
+  background-color: white;
+  color: black;
+  font-size: 50px;
+}
+
+.change_content:after {
+  content: '';
+  animation: changetext 10s infinite linear;
+  color: greenyellow;
+  text-decoration: 9px 9px 9px black;
+  font-size: 6vh;
+
+}
+
+@keyframes changetext {
+  0% {
+      content: "jammu kashmir";
+  }
+
+  20% {
+      content: "Agra";
+  }
+
+  35% {
+      content: "Jaipur";
+  }
+
+  60% {
+      content: "kerala";
+  }
+
+  80% {
+      content: "delhi";
+  }
+
+  100% {
+      content: "Mumbai";
+  }
+}
+
+
+
+.sec1 .container1 {
+  /* display: grid; */
+  
+  display: flex;
+  margin: 50px 0px;
+  /* grid-gap: 80rem; */
+  height: 500px;
+  width: 1550px;
+}
+
+.sec1 .container1 .tm {
+  /* display: block; */
+ 
+ 
+  color:#C0C0C0;
+  font-weight: bold;
+  font-size: 5vh;
+  margin: 30px 20px;
+  height: 500px;
+  width: 800px;
+}
+
+.sec1 .container2 {
+  /* display: grid; */
+  
+  display: flex;
+  /* grid-gap: 20rem; */
+  height: 500px;
+  width: 1550px;
+  margin: 50px 0px;
+}
+
+.sec1 .container2 .rf {
+  width: 800px;
+  height: 500px;
+ 
+  margin: 3px 20px;
+  color:#C0C0C0;
+  font-weight: bold;
+  font-size: 5vh;
+
+}
+.sec1 .container1 img {
+  height: 400px;
+  width: 70%;
+   }
+  
+   .sec1 .container2 img {
+  height: 400px;
+  width: 70%
+   }
+**********************************************************************************************************************************************************
+                                                                              form.css
+
+.up{
+  
+  align-items: center;
+  justify-content: center;
+  border:2px solid grey;
+  height :67vh;
+  width:40%;
+  background-image: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+  position: absolute;
+  left:28%;
+  margin:150px 0px;
+
+}
+.form{
+ width:70%;
+ height: 7vh;
+ font-size: 1rem;
+ font-weight:bolder ;
+  margin:30px 3px;
+  position: relative;
+  left:15%;
+  top:10%;
+  border:3px solid black;
+}
+.btn{
+  position: relative;
+  left:40%;
+  background-color: white;
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  font-size: 1rem;
+  height: 6vh;
+  border-radius: 1vh;
+  top:15%;
+}
+.head{
+  position: absolute;
+  top:5%;
+  left:38%;
+}
+*********************************************************************************************************************************************************************
+                                                                         work.js
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+const app = express();
+const port = 80;
+
+app.use('/static', express.static('static')) // For serving static files
+app.use(express.urlencoded())
+app.set('view engine', 'pnug') // Set the template engine as pug
+app.set('views', path.join(__dirname, 'views')) // Set the views director
+
+ app.get('/', (req, res)=>{
+   
+    const params = {}
+    res.status(200).render('cc.pug', params);
+})
+app.get('/login', (req, res)=>{
+   
+    
+    res.status(200).render('form.pug');
+    
+ })
+ app.post('/submit',(req,res)=>{
+    
+    const params = ("Your form has been submitted successfully");
+    res.send(params);
+
+
+})
+ app.listen(port, ()=>{
+    console.log(`The application started successfully on port ${port}`);
+});
+*************************************************************************************************************************************************************************
+
+rendering static files in express.js
+
+index.js
+
+const express = require("express")
+const app = express()
+const path = require("path");
+const staticPath = path.join(__dirname, "./static")
+
+app.use(express.static(staticPath))
+app.get("/", (req, res) => {
+    res.send("hello")
+})
+app.listen(8000, () => {
+    console.log("successfully working on port 8000");
+})
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <h1>hellllllo world</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

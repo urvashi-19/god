@@ -1,0 +1,21 @@
+class parrot:
+    species = "bird"
+    place = "india"
+    def __init__(self , name ,age):
+
+        self.name = name
+        self.age = age
+    def urvashi(self,style):
+        return "the name of parrot is {}, and style is {}".format(self.name,style)
+    def ujjwal(self , friend):
+        return "the name of parrot is {}".format(friend)
+
+
+
+
+blu = parrot("blu",10)
+print("the parrot age is {}".format(blu.__class__.species))
+print(f"the age of parrot is {blu.age}") #can't use self here as self is defined in def function.
+print(blu.urvashi("hiphop"))
+print(blu.ujjwal("priyam"))
+print(f" this bird is found in {blu.__class__.place}")

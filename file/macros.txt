@@ -1,0 +1,24 @@
+#define int long long
+#define ll long long
+#define ff first
+#define ss second
+#define inx(x) int x; cin>>x;
+#define fo(i,a,b) for(int i=a;i<b;i++)
+#define fa(x,y) for(auto &x: y)
+#define rajdhani ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define all(x) x.begin(),x.end()
+#define sva(vi) sort(vi.begin(),vi.end())
+#define svd(vi) sort(vi.begin(),vi.end(),greater<int>())
+#define saa(a,n) sort(a,a+n)
+#define YY cout<<"YES\n";
+#define NN cout<<"NO\n";
+#define vii vector<pair<int,int>>
+// #define vs vector<string>
+#define vi vector<int>
+#define str string
+#define inviii(x,n) for(int i=0;i<n;i++){pair<int,int>p;cin>>p[i].first>>p[i].second;x.pb(p);}
+#define invii(x,n) for(int i=0;i<n;i++){int tt;cin>>tt;x.pb(tt);}
+#define pb push_back
+#define MOD1 998244353
+#define MOD 1000000007
+const int N = 1e6 + 1;

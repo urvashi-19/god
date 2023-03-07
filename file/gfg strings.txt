@@ -1,0 +1,338 @@
+1.
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string s = " i like programming very much";
+    vector<string> ans;
+    string temp="";
+    int n=s.size();
+    for (int i =n-1; i >=0; i--)
+    {
+       
+        if (s[i] == ' ')
+        {
+            reverse(temp.begin(),temp.end());
+           
+            ans.push_back(temp+" ");
+            temp="";
+
+        }
+        else
+        {
+            temp+=s[i];
+            
+        }
+    }
+
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i];
+    }
+    
+}
+************************************************************************************************************************
+2.
+
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string str[5] = {"geeksforgeeks", "geeks", "geek", "geezer"};
+    string temp = "";
+    string ans = str[0];
+    string check;
+    string result;
+    for (int i = 1; i < 4; i++)
+    {
+        check = str[i];
+        for (int j = 0; j < ans.size(); j++)
+        {
+            if (check[j] == ans[j])
+            {
+                temp = temp + check[j];
+            }
+            else{
+                ans = temp;
+            result = temp;
+            temp = "";
+            break;}
+        }
+    }
+
+    for (int i = 0; i < result.size(); i++)
+    {
+        cout << result[i];
+    }
+    return 0;
+}
+
+********************************************************************************************************************************
+3.
+
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    string str[] = {"the", "quick", "brown", "fox", "quick"};
+    string word1, word2;
+    getline(cin, word1);
+    getline(cin, word2);
+    bool check = 0;
+    int i , j;
+
+    for ( i = 0; i < 6; i++)
+    {
+        for ( j = 0; j < 6; j++)
+        {
+
+            if (str[i]== str[j])
+            {
+                if (j == i)
+                {
+                    check = 1;
+                    continue;
+                }
+                else if(check==1){
+                    cout<<j-i;
+                    break;
+                }
+            }
+
+            if (str[i] == word1 && str[j] == word2)
+            {
+                cout << j - i;
+               
+                break;
+            }
+        }//exit from inner loop
+         if (check == 1 && str[i] == word1 && str[j] == word2)
+            {
+               break;
+            } 
+         if (str[i] == word1 && str[j] == word2)
+            {
+                
+                break;
+            }
+            
+            }
+    return 0;
+}
+
+************************************************************************************************************************
+7.
+#include <bits/stdc++.h>
+//#include <string>
+using namespace std;
+int main()
+{
+    string str;
+    getline(cin, str);
+    int i = 0, j = 0, count ;
+    char ans;
+    vector<char>res;
+    while (i < str.length())
+    {
+        count = 1;
+        j = i + 1;
+        while (j < str.length())
+        {
+            if (str[i] == str[j])
+
+            {
+                count = count + 1;
+                j = j + 1;
+            }
+            else
+                break;
+        }
+        if(count>=0 || count<=9){
+            ans =  count + 48;
+        }
+        if(count>9){
+            ans =  count + 87;
+        }
+
+       
+
+        if (ans > 1)
+        {
+            //cout << str[i] << ans;
+            res.push_back(str[i]);
+            res.push_back(ans);
+        }
+        else
+        {
+            //cout << str[i]<<ans;
+            res.push_back(str[i]);
+        }
+        i = i + count;
+    }
+    reverse(res.begin(),res.end());
+    for(i=0 ; i < res.size() ;i++){
+        cout<<res[i];
+    }
+}
+*********************************************************************************************************
+10. not valid for all ..
+#include <bits\stdc++.h>
+using namespace std;
+int main()
+{
+    int i, j, k, c = 0, count;
+
+    string s1, s2;
+    char temp;
+    getline(cin, s1);
+    getline(cin, s2);
+    for (i = 0; i < s1.size(); i++)
+    {
+        for (j = 0; j < s1.size(); j++)
+        {
+            if (s1[i] < s1[j])
+            {
+                temp = s1[i];
+                s1[i] = s1[j];
+                s1[j] = temp;
+            }
+        }
+    }
+    for (i = 0; i < s2.size(); i++)
+    {
+        for (j = 0; j < s2.size(); j++)
+        {
+            if (s2[i] < s2[j])
+            {
+                temp = s2[i];
+                s2[i] = s2[j];
+                s2[j] = temp;
+            }
+        }
+    }
+    cin >> k;
+
+    for (i = 0; i < s1.size(); i++)
+    {
+        cout << s1[i];
+    }
+    cout << endl;
+    for (i = 0; i < s2.size(); i++)
+    {
+        cout << s2[i];
+    }
+    cout << endl;
+    for (i = 0; i < s1.size(); i++)
+    {
+        for (j = i; j < i+1; j++)
+        {
+
+            if (s1[i] != s2[j])
+            {
+
+                c++;
+                break;
+            }
+        }
+    }
+    if (c == k)
+        cout << "1";
+    else
+        cout << "0";
+}
+**************************************************************************************************************************************************
+13. printing substrings
+
+# include<iostream>
+using namespace std;
+int main(){
+    
+    string ch;
+    
+    getline(cin, ch);
+    int i ,j,k;
+    for(i=0; i<ch.size();i++){
+        for(j=0;j<=i;j++){
+            for(k=j;k<=i;k++){
+                cout<<ch[k];
+            }
+            cout<<endl;
+        }
+    }
+}
+
+********************************************************************************************************************************************
+14.
+# include<bits\stdc++.h>
+using namespace std;
+int main(){
+     string a = "amazon";
+     string b = "azonam";
+     int k = 2;
+     
+     bool flag = 1;
+    vector<char>ans;
+    for (int i = k; i < a.size(); i++)
+    {
+        ans.push_back(a[i]);
+    }
+    for (int i = 0; i < k; i++)
+    {
+        ans.push_back(a[i]);
+    }
+    
+    for(int i = 0 ; i<ans.size() ;i++){
+        if(b[i] == ans[i]){
+            continue;
+        }
+        else{
+        flag = 0;
+        break; }
+    }
+    if(flag==1){
+        cout<<"true : has a reptition of 2";
+    }
+    else
+    cout<<"false : does not have a repition of 2";
+
+    
+}
+*************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

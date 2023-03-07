@@ -1,0 +1,18 @@
+const express = require("express")
+const app = express()
+const path = require("path");
+const staticPath = path.join(__dirname + "/static");
+
+app.use(express.static(staticPath));
+
+
+app.get("/", (req, res) => {
+   res.sendFile(staticPath)
+})
+app.get("/register", (req, res) => {
+    
+    res.sendFile(path.join(__dirname + "/static/reg.html"));
+ })
+app.listen(3000, () => {
+    console.log("successfully working on port 3000");
+})

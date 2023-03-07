@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    <!-- it is a container to store multiple tags -->
+    <div align = "center">
+      <h1><u>Admission Form</u></h1>
+      <!-- <h2> HELLO</h2> allign it to the center -->
+      <!--input is usef to enter something from the user-->
+      First Name : <input type = "text"><br><br>
+      Last Name :  <input type = "text"> <br><br>
+      <!-- calendertype -->
+    Date Of Birth : <input type = "date"><br><br>
+      <!-- gender -->
+      <h3>Gender</h3>
+      Male : <input type = "radio" name = "gender">  <!--both the name should be same-->
+      Female : <input type = "radio" name = "gender">
+      <!-- city -->
+      <h4>City</h4>
+      <input type = "checkbox">Banglore
+      <input type = "checkbox">Delhi
+      <input type = "checkbox">Mumbai
+      <input type = "checkbox">Pune
+      <!-- courses selection -->
+      <h5>Select the course</h5>
+      <select>
+          <option>Ece</option>
+          <option>Cs</option>
+          <option>Mec</option>
+          <option>Bio</option>
+      </select><br><br>
+      <!-- numbers -->
+      Phone no : <input type = "number"><br><br>
+      <!-- button -->
+      <button>Submit Now</button><br>
+      <!-- ADDING MULTIMEDIA -->
+      <img src = "image.jpg" width = "300px" height = "300px"><br><br>
+      <!-- adding audio -->
+      <audio src=""controls></audio><Br><br>
+      <!-- videos -->
+      <iframe width="853" height="480" src="https://www.youtube.com/embed/2UGjCVQnjcc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+     
+      
+
+    </div> 
+    <!-- <h2> HELLO </h2>  alligns it to the left -->
+   
+</body>
+</html>
+
+*****************************************************************************************************************************************
+const express = require("express");
+const app = express();
+app.set('view engine', 'ejs');
+app.get('/home',(req,res)=>{
+    res.send("hello");
+})
+
+app.get('/about',(req,res)=>{
+    // res.send("nsut the great");
+    res.status(200).render('form')
+})
+app.post('/submit',(req ,res)=>{
+    res.send("done successfully");
+})
+
+app.listen(5000,(req,res)=>{
+    console.log("server is working");
+});
+
+EXP.JS
+
+const express = require("express");
+const app = express();
+app.set('view engine', 'ejs');
+app.get('/home',(req,res)=>{
+    res.send("hello");
+})
+
+app.get('/about',(req,res)=>{
+    // res.send("nsut the great");
+    res.status(200).render('form')
+})
+app.post('/submit',(req ,res)=>{
+    res.send("done successfully");
+})
+
+app.listen(5000,(req,res)=>{
+    console.log("server is working");
+});
+
+**********************************************************************************************************************************
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended:true}))
+app.set('view engine', 'ejs');
+app.get('/home',(req,res)=>{
+    res.send("hello");
+})
+
+app.get('/about/:data',(req,res)=>{
+    var name  = req.params.data 
+    console.log(name)
+    res.send("beluga")
+    // res.send("nsut the great");
+})
+app.get('/about',(req,res)=>{
+    res.status(200).render('form')
+})
+app.post('/submit',(req ,res)=>{
+       var data ={ name:req.body.name,
+       address:req.body.name1,
+       mobile:req.body.name2}
+       
+       console.log(data);
+    res.send("form submitted")
+})
+
+
+app.listen(5000,(req,res)=>{
+    console.log("server is working");
+});
+
+
+code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+    <style>
+        .container{
+            border:2px solid grey;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            height: 45vh;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form action="/submit" method="POST">
+            <input type ="text"  name = "name"placeholder="name"><br>
+            <input type ="text"  name = "name1"placeholder="PLACE"><br>
+            <input type ="NUMBER" name = "name2" placeholder="MOB.NO"><br>
+            <button class="btn">Submitnow</button>
+        </form>
+        <p>
+
+        </p>
+    </div>
+    
+</body>
+</html>
+
+
+******************************************************************************************
+css.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+   
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+ <style>
+     .btn btn-secondary{
+         background-color: chartreuse;
+     }
+ </style>
+</head>
+<body>
+    <div align="center">
+        <h1>welcome all</h1>
+        <button class="btn btn-primary m-4">WEB DEVELOPMENT</button>
+        <button class="btn btn-secondary ">APP DEVELOPMENT</button>
+        <button class="btn btn-warning m-4">WEB DEVELOPMENT</button>
+        <button class="btn btn-danger m-2">APP DEVELOPMENT</button>
+        <button class="btn btn-success m-3">APP DEVELOPMENT</button>
+      
+        <!-- Grid box -->
+        <div class="container">
+            <div class="row">
+              <div class="col -lg-7 bg-danger m-2">Column1</div>
+              <div class="col -lg bg-success m-2">Column</div>
+              <div class="col bg-warning m-2">Column</div>
+             
+            </div>
+             
+            </div>
+          </div>
+
+    </div>
+    
+</body>
+</html>
+
+/*****************************************************************************************
+css.css
+/* external css done in other */
+/* we use a link tag for this in html page */
+/* link rel = "stylesheet href="css.css */ 
+h4{
+    background-color: azure;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    /* box model */
+    padding: 20px;  
+    margin:20px;
+    border-radius: 20px;
+    border-style: dotted;
+    border-width: 2px;
+
+}
+body{
+    background-color: cornsilk;
+    background-image: url("image.jpg");
+    background-repeat: space;
+}
+h3.bean{
+    border-radius: 70px;
+}
+**********************************************************************************
+backgroung.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        body{
+            background-image:url("image.jpg");
+            /* cover ...covers the iamge to entire webpage */
+            background-size: cover;
+            /* when we scroll content moves not image */
+            background-attachment: fixed;
+        }
+        h2.gradient{
+            color:rgb(236, 220, 45);
+            font-size: 45px;
+            text-transform: capitalize;
+            text-decoration: underline;
+            word-spacing: 50px;
+            line-height: 30px;
+            /* text-align :right; */
+            /* linear gradient is combination of color */
+            background-image: linear-gradient( 120deg,pink,crimson,orange ,purple);
+            padding:50px;
+            margin:50px;
+            border-radius: 20px;
+        }
+        #mybox{
+            width:300px;
+            height:400px;
+            background-color:darksalmon;
+            margin:90px;
+            border-radius: 30px;
+        animation-name: myanim;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        /* position relative helps to move the box */
+        position: relative;
+    }
+    /* for animation we use keyframe */
+    /* @keyframes myanim{
+        from{background-color: teal;};
+        to{background-color: crimson;}
+    } */
+    @keyframes myanim{
+        25%{background-color: teal;left:0px;top:0px;};
+        50%{background-color: crimson;left:200px;top:0px;}
+        75%{background-color: rgb(23, 0, 128);left:200px;top:200px;}
+        88%{background-color: rgb(220, 220, 20);left:0px;top:200px;}
+        100%{background-color:deeppink;left:0px;top:0px;}
+    }
+    #header{
+        width:100%;
+        top:0px;
+        /* position fixed makesthe header to stick on the top */
+        position :fixed;
+        background-color: gold;
+        height:70px;
+        left:0px;
+        text-align: center;
+    }
+   body { 
+       /* gives space between the boxes before after making position fixed boxes were overlapping on each other */
+         padding-top: 80px;;
+    }
+    #footer{
+        width:100%;
+        position: fixed;
+        bottom:0px;
+        background-color: coral;
+        height: 70px;
+        left: 0px;
+        text-align: center;
+
+    }
+
+       
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>WELCOME TO MY PAGE</h1>
+    </div>
+    <div  align="center">
+        <h2 class="gradient">WELCOME BACK</h2>
+         <div align="center" id="mybox">
+
+         </div>
+
+    </div>
+    <div id="footer">
+        <h1>end of the page</h1>
+    </div>
+    
+</body>
+</html>
+***********************************************************************************
+grid.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        #Home{grid-area:Home;}
+        #Aboutus{grid-area:About;}
+        #Gallery{grid-area: Gallery;}
+        #Contactus{grid-area: Contactus;}
+        #Workdone{grid-area: Work;} 
+
+        #maindiv{
+            /* display:grid for multiple areas */
+            display:grid;
+            grid-template-areas:' Home Home Home Home Home Home'
+            'About About About Gallery Gallery Gallery'
+            'Contactus Contactus  Contactus Work Work Work';
+            padding :40px;
+            margin:40px;
+            border-radius: 10px;
+            background-color:bisque;
+            font-size: 2.3rem;
+     }
+     /* > add all css to divisions */
+     #maindiv > div{
+         padding:40px;
+         margin:10px;
+         border-radius: 10px;
+         background-color: cornflowerblue;
+         text-align: center;
+
+     }
+        </style>
+      
+</head>
+<body>
+    <!-- grid box is combination of rows and column -->
+    <!-- flex box is a one dimension(it can be row or column) -->
+    <div align="center">
+        <h1 style="color:brown;font-size: 76px;font-family: Verdana, Geneva, Tahoma, sans-serif;background-color: rgb(18, 128, 128);
+        ">welcome to my page</h1>
+    </div>
+    <div id="maindiv">
+        <div id="Home">welcome home</div>
+        <div id="Aboutus">information</div>
+        <div id="Gallery">Gallery</div>
+        <div id="Contactus">Details</div>
+        <div id="Workdone">Work done</div>
+    </div>
+</body>
+</html>
+
+****************************************************************************
+flexbox.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        #Home{grid-area:Home;}
+        #Aboutus{grid-area:About;}
+        #Gallery{grid-area: Gallery;}
+        #Contactus{grid-area: Contactus;}
+        #Workdone{grid-area: Work;} 
+
+        #maindiv{
+            /* display:grid for multiple areas */
+            display:flex;
+            flex-direction:column ;
+           
+            padding :40px;
+            margin:40px;
+            border-radius: 10px;
+            background-color:bisque;
+            font-size: 2.3rem;
+     }
+     /* > add all css to divisions */
+     #maindiv > div{
+         padding:40px;
+         margin:10px;
+         border-radius: 10px;
+         background-color: cornflowerblue;
+         text-align: center;
+
+     }
+        </style>
+      
+</head>
+<body>
+    <!-- grid box is combination of rows and column -->
+    <!-- flex box is a one dimension(it can be row or column) -->
+    <div align="center">
+        <h1 style="color:brown;font-size: 76px;font-family: Verdana, Geneva, Tahoma, sans-serif;background-color: rgb(18, 128, 128);
+        ">welcome to my page</h1>
+    </div>
+    <div id="maindiv">
+        <div id="Home">welcome home</div>
+        <div id="Aboutus">information</div>
+        <div id="Gallery">Gallery</div>
+        <div id="Contactus">Details</div>
+        <div id="Workdone">Work done</div>
+    </div>
+</body>
+</html>
+**************************************************************************
+boot.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+   
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+ <style>
+     .btn btn-secondary{
+         background-color: chartreuse;
+     }
+ </style>
+</head>
+<body>
+    <div align="center">
+        <h1>welcome all</h1>
+        <button class="btn btn-primary m-4">WEB DEVELOPMENT</button>
+        <button class="btn btn-secondary ">APP DEVELOPMENT</button>
+        <button class="btn btn-warning m-4">WEB DEVELOPMENT</button>
+        <button class="btn btn-danger m-2">APP DEVELOPMENT</button>
+        <button class="btn btn-success m-3">APP DEVELOPMENT</button>
+      
+        <!-- Grid box -->
+        <div class="container">
+            <div class="row">
+              <div class="col -lg-7 bg-danger m-2">Column1</div>
+              <div class="col -lg bg-success m-2">Column</div>
+              <div class="col bg-warning m-2">Column</div>
+             
+            </div>
+             
+            </div>
+          </div>
+
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

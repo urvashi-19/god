@@ -1,0 +1,544 @@
+INSERTING ELEMENT IN A LINKED LIST
+
+#include <bits/stdc++.h>
+#define e cout<<endl;
+using namespace std;
+
+
+class Node{
+public:
+    int val;
+    Node* next;
+    Node(int val){
+        this->val=val;
+        next=NULL;
+    }
+};
+void* insert1(Node*tail){
+   
+  
+    int x;
+    cin>>x;
+    while(x!=-1){
+        Node*a=new Node(x);
+        
+        
+            tail->next=a;
+            tail=a; // ==== tail=tail->next;
+        
+        cin>>x;
+    }
+
+   
+}
+void print(Node* head){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->val;
+        e
+        temp=temp->next;
+    }
+}
+int main()
+{ Node* p = new Node(1);
+    Node* head = p;
+    Node* tail= p;
+    insert1(tail);
+    
+  
+    print(head);
+    return 0;
+}
+***********************************************************************************
+FIND THE MIDDLE ELEMENT
+
+#include <iostream>
+#define e cout<<endl;
+using namespace std;
+
+
+class Node{
+public:
+    int val;
+    Node* next;
+    Node(int val){
+        this->val=val;
+        next=NULL;
+    }
+};
+void* insert1(Node*tail){
+   
+  
+    int x;
+    cin>>x;
+    while(x!=-1){
+        Node*a=new Node(x);
+        
+        
+            tail->next=a;
+            tail=a; // ==== tail=tail->next;
+        
+        cin>>x;
+    }
+     
+
+   
+}
+void print(Node* head){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->val;
+        e
+        temp=temp->next;
+    }
+}
+void count(Node*head){
+  Node*tt=head;
+  int count = 0;
+  while(head!=NULL){
+    count++;
+    head = head->next;
+  } int pos=0;
+  while(pos<(count)/2){
+    pos++;
+    tt = tt->next;
+  }
+  cout<<"the value of mid is" <<(count)/2;  
+  cout<<"the value of temp is"<<tt->val;
+}
+int main()
+{ Node* p = new Node(1);
+    Node* head = p;
+    Node* tail= p;
+    insert1(tail);
+    
+  
+    print(head);
+    count(head);
+    return 0;
+}
+**********************************************************************************************************************************************************************
+REVERSING A LINKED LIST (iterative approach)
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode*prev = NULL;
+        ListNode*next = NULL;
+        ListNode*curr = head;
+        while(curr!=NULL){
+            next = curr->next;
+            curr->next=prev;
+            prev = curr;
+            curr=next;
+        }
+        return prev;
+        
+        
+    }
+};
+
+REVERSING A LINKED LIST (RECURSIVE)
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+       ListNode*newhead= reverseList(head->next);
+            head->next->next = head;
+           head->next = NULL;
+           return newhead;
+           
+        
+    }
+};
+*******************************************************************************************************************************************************
+reverse inn vs code (iterative)
+
+#include <iostream>
+#define e cout<<endl;
+using namespace std;
+
+
+class Node{
+public:
+    int val;
+    Node* next;
+    Node(int val){
+        this->val=val;
+        next=NULL;
+    }
+};
+void* insert1(Node*tail){
+   
+  
+    int x;
+    cin>>x;
+    while(x!=-1){
+        Node*a=new Node(x);
+        
+        
+            tail->next=a;
+            tail=a; // ==== tail=tail->next;
+        
+        cin>>x;
+    }
+     
+
+   
+}
+void print(Node* head){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->val<<"->";
+        
+        temp=temp->next;
+    }
+    cout<<"null";
+    e
+}
+Node* reverse(Node*head){
+  Node*prev=NULL;
+  Node*curr = head;
+  Node*next = NULL;
+  while(curr!=NULL){
+    next = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = next;
+  }
+   head = curr;
+  return head;
+}
+
+int main()
+{ Node* p = new Node(1);
+    Node* head = p;
+    Node* tail= p;
+    insert1(tail);
+    
+  
+    print(head);
+    Node*newhead = reverse(head);
+    print(newhead);
+    return 0;
+}
+
+****************************************************************************************************************************
+recurssive (vs code)
+#include <iostream>
+#define e cout<<endl;
+using namespace std;
+
+
+class Node{
+public:
+    int val;
+    Node* next;
+    Node(int val){
+        this->val=val;
+        next=NULL;
+    }
+};
+void* insert1(Node*tail){
+   
+  
+    int x;
+    cin>>x;
+    while(x!=-1){
+        Node*a=new Node(x);
+        
+        
+            tail->next=a;
+            tail=a; // ==== tail=tail->next;
+        
+        cin>>x;
+    }
+     
+
+   
+}
+void print(Node* head){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->val<<"->";
+        
+        temp=temp->next;
+    }
+    cout<<"null";
+    e
+}
+Node* reverse(Node*head){
+if(head->next == NULL ){
+    return head;
+}
+   Node*newhead = reverse(head->next);
+   head->next->next = head;
+   head->next = NULL;
+   return newhead;    //returning the ponter which is at last of reversed linked list and acts as a head
+   
+   
+}
+
+int main()
+{ Node* p = new Node(1);
+    Node* head = p;
+    Node* tail= p;
+    insert1(tail);
+    
+  
+    print(head);
+    Node*newhead = reverse(head);
+    print(newhead);
+    return 0;
+}
+**********************************************************************************************************************************
+detecting a cycle or not
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(head==NULL||head->next==NULL)
+            return false;
+        ListNode * slow = head;
+        ListNode*fast = head;
+        
+        while(fast!=NULL&&fast->next!=NULL){     //checking wether cycle or not....
+            fast = fast->next->next;
+            slow = slow->next;
+            if(fast==slow)
+                return true;
+            
+                else                        //if not cycle return false.....
+                    return false;
+        
+    }
+};
+
+***************************************************************************************************************
+detect a cycle(vs code)
+#include <iostream>
+#define e cout << endl;
+using namespace std;
+
+class Node
+{
+public:
+    int val;
+    Node *next;
+    Node(int val)
+    {
+        this->val = val;
+        next = NULL;
+    }
+};
+void *insert1(Node *tail)
+{
+
+    int x;
+    cin >> x;
+    while (x != -1)
+    {
+        Node *a = new Node(x);
+
+        tail->next = a;
+        tail = a; // ==== tail=tail->next;
+
+        cin >> x;
+    }
+}
+void print(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->val << "->";
+
+        temp = temp->next;
+    }
+    cout << "null";
+    e
+}
+void makecycle(Node *&head, int pos)
+{
+    Node *temp = head;
+    Node *startnode;
+    int count = 1;
+    while (temp->next != NULL)
+    {
+        if (count == pos)
+        {
+            startnode = temp;
+        }
+        temp = temp->next;
+        count++;
+    }
+    temp->next = startnode;
+}
+bool hasCycle(Node *head)
+{
+
+    Node *slow = head;
+    Node *fast = head;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+        if (fast == slow)
+            return true;
+    }
+
+    return false;
+}
+
+int main()
+{
+    Node *p = new Node(1);
+    Node *head = p;
+    Node *tail = p;
+    insert1(tail);
+    print(head);
+
+    makecycle(head, 3);
+    cout << hasCycle(head);
+
+    return 0;
+}
+*********************************************************************************************************************************************
+MERGE TWO SORTED LINKED LIST                 IT TAKE SPACEO(1)
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* dummy = new ListNode(0);
+        ListNode *curr = dummy;
+        while(list1!=NULL && list2!=NULL){
+            if(list1->val<=list2->val){
+                curr->next =list1;
+                list1 = list1->next;
+            }
+             else{
+                curr->next =list2;
+                list2 = list2->next;
+            }
+            curr = curr->next;
+        }
+        while(list1!=NULL){
+            curr->next = list1;
+            curr = curr->next;
+            list1 = list1->next;
+        }
+         while(list2!=NULL){
+            curr->next = list2;
+            curr = curr->next;
+            list2 = list2->next;
+        }
+       
+        
+        
+        return dummy->next;
+    }
+};
+************************************************************************************************************
+sir's code best code for merging two linked list
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode*head = NULL;
+        ListNode*tail = NULL;
+        if(list1==NULL)return list2;
+        if(list2==NULL)return list1;
+        while(list1!=NULL && list2!=NULL){
+            if(list1->val<=list2->val){
+                if(head==NULL){
+                    head = list1;
+                    tail = list1;
+                }
+                else{
+                    tail->next = list1;
+                    tail = tail->next;
+                    
+                }
+                list1 = list1->next;
+            }
+            else{
+                if(head==NULL){
+                    head = list2;
+                    tail = list2;
+                }
+                else{
+                    tail->next = list2;
+                    tail = tail->next ;
+                }
+                list2 = list2->next;
+            }
+        }
+        if(list1!=NULL)tail->next = list1;
+        if(list2!=NULL)tail->next = list2;
+        return head;
+        
+    }
+};
+********************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

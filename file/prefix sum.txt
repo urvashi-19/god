@@ -1,0 +1,141 @@
+303. Range Sum Query - Immutable:
+
+class NumArray {
+public:
+    vector<int>nums;
+    vector<int>prefix;
+    NumArray(vector<int>& nums) {
+        this->nums = nums;
+        int n = nums.size();
+        prefix.resize(n);
+        prefixcalc(nums);
+        
+        
+    }
+    
+    int sumRange(int left, int right) {
+        return left-1>=0?prefix[right]-prefix[left-1]:prefix[right];
+        
+    }
+    void prefixcalc(vector<int>nums){
+        for(int i =0 ; i<nums.size();i++){
+        i==0?prefix[i]=nums[i]:prefix[i]=nums[i]+prefix[i-1];
+        }
+    }
+};
+
+724. Find Pivot Index
+
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        
+   
+        int sum = 0;
+        int nsum = 0;
+        for(int i =0 ;i<nums.size();i++){
+            sum = sum + nums[i];
+        }
+        
+        for(int i =0 ; i<nums.size();i++){
+            sum = sum-nums[i];
+            if(sum == nsum){
+                return i;
+            }
+            
+            nsum = nsum + nums[i];
+            
+        }
+        return -1;
+        
+    }
+};
+
+
+// concept of upper bound:
+
+//for upperbound array must be sorted;
+// upper_bound(prefix.begin(),prefix.end(),query) : it tells the ptr;
+//  upper_bound(prefix.begin(),prefix.end(),query) - prefix.begin() : gives no of elememt
+
+
+class Solution {
+public:
+    vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
+        vector<int>ans;
+        int n = nums.size();
+        sort(nums.begin() , nums.begin()+nums.size());
+        vector<int>prefix(n);
+        prefix[0] = nums[0];
+        for(int i=1 ; i<nums.size();i++){
+            prefix[i] = prefix[i-1] + nums[i];
+        }
+        
+        for(int i =0 ; i<queries.size();i++){
+            
+          int query = queries[i];
+        ans.push_back(upper_bound(prefix.begin(),prefix.end(),query) - prefix.begin());
+            
+        }
+        
+        return ans;
+    }
+};
+
+**************************************************************************************************************************************************
+523. Continuous Subarray Sum
+
+brute force: 
+class Solution {
+public:
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        int count = 0;
+        int j;
+        for(int i =2 ; i<=nums.size() ; i++){
+            int sum = 0;
+           for( j =0 ; j<i ; j++){
+               
+               sum = sum + nums[j];
+           }
+            if(sum%k==0){
+                cout<<sum<<" ";
+                return true;
+            }
+           
+            
+            for(int p = j ; p<nums.size() ; p++){
+                sum = sum + nums[p];
+                sum = sum -nums[p-j];
+                if(sum%k==0){
+                    cout<<count;
+                    return true;
+                }
+            }
+            count++;
+                          
+
+        }
+        return false;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

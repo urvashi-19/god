@@ -1,0 +1,82 @@
+maximum average subarray:
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        double sum = 0;
+        
+         for(int i =0 ; i<k;i++){
+             sum+=nums[i];
+         }
+        double maxSum = sum;
+        for(int i = k ; i<nums.size();i++){
+            sum+=nums[i];
+            sum-=nums[i-k];
+            maxSum = max(maxSum , sum);
+        }
+        
+        return maxSum/k;
+        
+    }
+};
+
+
+first negative number in sliding window.
+
+
+vector<long long> printFirstNegativeInteger(long long int A[],
+                                             long long int N, long long int K) {
+        
+        vector<int>ans;
+        queue<int>q;
+        
+        for(int i =0 ; i<K ; i++){
+            q.push_back(A[i]);
+        }
+        if(q.size()!=0){
+            ans.push_back(q.front());
+        }
+        else{
+            ans.push_back(0);
+        }
+         int j =0;
+        for(int i = K ; i<N ; i++){
+            if(A[j]==q.front()){
+                q.pop();
+            }
+            
+            if(A[i]<0){
+                q.push_back(A[i]);
+            }
+            if(q.size()!=0){
+                ans.push_back
+            }
+            
+            else{
+                ans.push_back(0);
+            }
+        }
+        return ans;
+                                                 
+ }]
+
+
+KADANES ALGORITHM : maximum sum in contiguous subarray
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int maxi= nums[0];
+        int sum = 0;
+        for(int i =0 ; i<nums.size();i++){
+            sum = sum + nums[i];
+             maxi= max(sum , maxi);
+            if(sum<0){
+                sum = 0;
+            }
+            
+           
+        }
+        return maxi;
+        
+    }
+};

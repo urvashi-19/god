@@ -1,0 +1,960 @@
+Adjacency list:
+
+# include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    int vector<int>graph[n];
+    for(int i =0 ; i<n ; i++){
+        int val , val2;
+        cin>>val>>val2;
+        graph[val].push_back(val2);
+        graph[val2].push_back(val);
+    }
+}
+
+
+ADJACENCY LIST:
+
+# include<bits/stdc++.h>
+using namespace std;
+void addEdge(vector<int>adj[] , int u , int v){
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+}
+void printGraph(vector<int>adj[] , int n){
+    for(int i =0 ; i<n ; i++){
+        cout<<"the adjacency list of vertex  "<<i<<endl;
+        cout<<"head";
+        for(int j =0 ; j<adj[i].size() ; j++){
+            cout<<"->"<<adj[i][j];
+        }
+        cout<<endl;    
+        
+    }
+}
+int main(){
+    int n = 5;
+    vector<int>adj[n];
+    addEdge(adj, 0, 1);
+    addEdge(adj, 0, 4);
+    addEdge(adj, 1, 2);
+    addEdge(adj, 1, 3);
+    addEdge(adj, 1, 4);
+    addEdge(adj, 2, 3);
+    addEdge(adj, 3, 4);
+    printGraph(adj, n);
+    return 0;
+    
+}
+
+OUTPUT:
+
+the adjacency list of vertex  0
+head->1->4
+the adjacency list of vertex  1
+head->0->2->3->4
+the adjacency list of vertex  2
+head->1->3
+the adjacency list of vertex  3
+head->1->2->4
+the adjacency list of vertex  4
+head->0->1->3
+
+
+
+// DFS TRAVERSAL
+
+# include<bits/stdc++.h>
+using namespace std;
+vector<int>g[9];
+bool vis[9];
+void dfs (int vertex){
+cout<<vertex<<endl;
+vis[vertex] = true;
+for(int child : g[vertex]){
+cout<<"par " <<vertex<<", child " << child<<endl;
+if(vis[child]!=true){
+dfs(child);
+}
+}
+return ;
+}
+int main(){
+int v1,v2;
+for(int i =0 ; i<9 ; i++){
+
+cin>>v1>>v2;
+g[v2].push_back(v1);
+g[v1].push_back(v2);
+
+
+}
+dfs(v1);
+
+}
+
+OUTPUT:
+
+6 9
+1 3
+1 5
+3 5
+3 4
+3 6
+3 2
+2 6
+4 6
+4
+par 4, child 3
+3
+par 3, child 1
+1
+par 1, child 3
+par 1, child 5
+5
+par 5, child 1
+par 5, child 3
+par 3, child 5
+par 3, child 4
+par 3, child 6
+6
+par 6, child 9
+9
+
+
+
+// BFS TRAVERSAL
+
+CODE: 
+
+#include<bits/stdc++.h>
+using namespace std;
+  
+    vector<bool> visited(6,false);
+    
+    vector<int>adj[6];
+
+ 
+void addEdge(int v, int w)
+{
+    adj[v].push_back(w); 
+    adj[w].push_back(v);
+}
+ 
+void BFS(int s)
+{
+    // Mark all the vertices as not visited
+
+ 
+    // Create a queue for BFS
+    list<int> queue;
+ 
+    // Mark the current node as visited and enqueue it
+    visited[s] = true;
+    queue.push_back(s);
+ 
+    while(!queue.empty())
+    {
+        // Dequeue a vertex from queue and print it
+        s = queue.front();
+        cout << s << " ";
+        queue.pop_front();
+ 
+        // Get all adjacent vertices of the dequeued
+        // vertex s. If a adjacent has not been visited,
+        // then mark it visited and enqueue it
+        for (auto adjecent: adj[s])
+        {
+            if (!visited[adjecent])
+            {
+                visited[adjecent] = true;
+                queue.push_back(adjecent);
+            }
+        }
+    }
+}
+ 
+// Driver program to test methods of graph class
+int main()
+{
+   
+    addEdge(0, 1);
+    addEdge(0, 2);
+    addEdge(1, 2);
+    addEdge(2, 0);
+    addEdge(2, 3);
+    addEdge(3, 3);
+
+    BFS(2);
+ 
+    return 0;
+}
+
+
+OUTPUT:  2 0  1 3
+
+
+******  Find if Path Exists in Graph *******
+
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        vector<vector<int>>adjList(n);
+        int u , v;
+        for(int i =0 ;i<edges.size() ; i++){
+            u = edges[i][0];
+            v = edges[i][1];
+            adjList[u].push_back(v);
+            adjList[v].push_back(u);
+        }
+        
+        vector<bool>seen(n , false);
+        queue<int>q;
+        int curr , currnext;
+        q.push(source);
+        
+        while(!q.empty()){
+             curr = q.front();
+            q.pop();
+            seen[curr] = true;
+            for(int i =0 ; i<adjList[curr].size();i++){
+                currnext = adjList[curr][i];
+                if(!seen[currnext]){
+                    q.push(currnext);
+                    seen[currnext] = true;
+                }
+            }
+        }
+        if(seen[destination]==true) return true;
+        return false;
+    }
+};
+
+
+
+// gfg graph bfs traversal..
+
+class Solution {
+  public:
+    // Function to return Breadth First Traversal of given graph.
+    vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        int vis[V]= {0};
+        vis[0] = 1;
+        queue<int>q;
+        q.push(0);
+        vector<int>ans;
+        while(!q.empty()){
+            int top = q.front();
+            q.pop();
+            ans.push_back(top);
+            for(auto it : adj[top]){
+               if(vis[it]==0){
+                   vis[it] = 1;
+                   q.push(it);
+               }
+            }
+        }
+        return ans;
+    }
+};
+
+//gfg praph dfs traversal...
+
+class Solution {
+    private:
+    void dfs(vector<int>&ans , vector<int>adj[] , int start , int vis[]){
+        vis[start] = 1;
+        ans.push_back(start);
+        for(auto it : adj[start]){
+            if(vis[it]==0){
+                dfs(ans , adj , it , vis);
+            }
+        }
+        
+    }
+  public:
+    // Function to return a list containing the DFS traversal of the graph.
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        vector<int>ans;
+        int vis[V] = {0};
+        int start = 0;
+        dfs(ans , adj , start , vis);
+        return  ans;
+    }
+};
+
+
+// the no of provinces
+
+class Solution {
+public:
+     void dfs(int node , vector<int>&vis , vector<int>adj[]){
+         vis[node] = 1;
+         for(auto it : adj[node]){
+             if(vis[it]==0){
+                 dfs(it , vis , adj);
+             }
+         }
+     }
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int n = isConnected.size();
+        vector<int>adj[n];
+         vector<int>vis(n , 0);
+        for(int i =0 ; i<n ;i++){
+            for(int j =0 ; j<n ; j++){
+                if(isConnected[i][j]==1 && i!=j){
+                    adj[i].push_back(j);
+                    adj[j].push_back(i);
+                }
+            }
+        }
+        
+        int cnt = 0;
+       
+        for(int i =0 ; i<n ; i++){
+            if(vis[i]==0){
+                cnt++;
+                dfs(i , vis , adj);
+            }
+        }
+        return cnt;
+    }
+};
+
+
+
+Q . detect a cycle in a graph:   USING BFS
+
+class Solution {
+    private:
+    bool bfs(int src , int vis[] , vector<int>adj[]){
+        vis[src] = 1;
+        queue<pair<int , int>>q;
+        q.push({src , -1});
+        while(!q.empty()){
+            int node = q.front().first;
+            int parent = q.front().second;
+            q.pop();
+            for(auto adjacentnode : adj[node]){
+                if(!vis[adjacentnode]){
+                    vis[adjacentnode] = 1;
+                    q.push({adjacentnode , node});
+                }
+                else if(adjacentnode!=parent){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+  public:
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+      int vis[V] = {0};
+      int src = 0;
+      return bfs(src , vis  ,adj);
+    }
+};
+
+
+if broken into components:
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution {
+    private:
+    bool bfs(int src , int vis[] , vector<int>adj[]){
+        vis[src] = 1;
+        queue<pair<int , int>>q;
+        q.push({src , -1});
+        while(!q.empty()){
+            int node = q.front().first;
+            int parent = q.front().second;
+            q.pop();
+            for(auto adjacentnode : adj[node]){
+                if(!vis[adjacentnode]){
+                    vis[adjacentnode] = 1;
+                    q.push({adjacentnode , node});
+                }
+                else if(adjacentnode!=parent){   //IF IT IS VISITED
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+  public:
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+      int vis[V] = {0};
+      for(int i =0 ; i<V ; i++){
+          if(!vis[i]){
+              if(bfs(i , vis , adj)==true) return true;
+          }
+      }
+      return false;
+    }
+};
+
+***************************************************************************
+
+USINF DFS DETECTING CYCLE:
+
+class Solution {
+    private:
+    bool dfs(int src , int parent , vector<int>adj[] , int vis[]){
+        vis[src] = 1;
+        for(auto adjacentnode : adj[src]){
+            if(vis[adjacentnode]==0){
+                if(dfs(adjacentnode , src , adj , vis)==true) return true;
+            }
+            else if(adjacentnode!=parent) return true;
+        }
+        return false;
+    }
+  public:
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+     int vis[V] = {0};
+     for(int i =0 ; i<V ; i++){
+         if(vis[i]==0){
+         if(dfs(i , -1 , adj , vis)==true) return true;}
+     }
+     return false;
+    }
+};
+**************************************************************************************************
+detect cycle using topological sort:
+class Solution {
+  public:
+    // Function to detect cycle in a directed graph  // using topological sort.
+    bool isCyclic(int V, vector<int> adj[]) {
+        vector<int>indegree(V , 0) ;
+	    for(int i =0 ; i<V ; i++){
+	        for(auto it : adj[i]){
+	            indegree[it]++;
+	        }
+	    }
+	    
+	    // push the element with indegree 0 to queue
+	    int cnt = 0;
+	    queue<int>q;
+	    for(int i =0 ; i<V ; i++){
+	        if(indegree[i] == 0) q.push(i);
+	    }
+	    
+	    // now start's the real bfs traversal
+	    
+	    vector<int>ans;
+	    while(!q.empty()){
+	        int node = q.front();
+	        q.pop();
+	        cnt++;
+	        ans.push_back(node);
+	        for(auto it : adj[node]){
+	            indegree[it]--;
+	            if(indegree[it]==0) q.push(it);
+	        }
+	    }
+	    if(cnt==V) return false;
+	    return true;
+	    
+       
+    }
+};
+***********************************************************
+topological sort....     ONLY WHEN DIRECT GRAPH + ACYCLIC GRAPH + LINEAR ORDERING
+
+class Solution
+{   private:
+          void dfs(int src , int vis[] , stack<int>&st , vector<int>adj[]){
+    vis[src] = 1;
+    for(auto adjnode : adj[src]){
+        if(vis[adjnode]==0){
+            dfs(adjnode , vis , st , adj);
+        }
+        
+    }
+    st.push(src);
+}
+	public:
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    int vis[V] = {0};
+	    stack<int>st;
+	    for(int i =0 ; i<V ; i++){
+	        if(vis[i]==0){
+	            dfs(i , vis ,st , adj );
+	        }
+	    }
+	    
+	    vector<int>ans;
+	    while(!st.empty()){
+	        ans.push_back(st.top());
+	        st.pop();
+	    }
+	    return ans;
+	    
+	}
+};
+
+****************************************************************************************************
+topological sort using bfs:
+
+class Solution
+{
+	public:
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{    // create a indegree matrix;
+	    vector<int>indegree(V , 0) ;
+	    for(int i =0 ; i<V ; i++){
+	        for(auto it : adj[i]){
+	            indegree[it]++;
+	        }
+	    }
+	    
+	    // push the element with indegree 0 to queue
+	    
+	    queue<int>q;
+	    for(int i =0 ; i<V ; i++){
+	        if(indegree[i] == 0) q.push(i);
+	    }
+	    
+	    // now start's the real bfs traversal
+	    
+	    vector<int>ans;
+	    while(!q.empty()){
+	        int node = q.front();
+	        q.pop();
+	        ans.push_back(node);
+	        for(auto it : adj[node]){
+	            indegree[it]--;
+	            if(indegree[it]==0) q.push(it);
+	        }
+	    }
+	    return ans;
+	    
+	}
+};
+
+************************************************************************************************************************
+Number of Distinct Islands:
+
+class Solution {
+    private :
+    void dfs(int r , int c , vector<vector<int>>&vis , vector<pair<int,int>>&v ,vector<vector<int>>& grid , int mr , int mc){
+        vis[r][c] = 1;
+         int m = grid.size();
+        int n = grid[0].size();
+        int drow[] = {-1 , 0 , 1 , 0};
+        int dcol[] = {0 , 1 ,0 ,-1};
+        v.push_back({r-mr , c-mc});
+        for(int i =0 ; i<4 ; i++){
+            
+                int nr = r + drow[i];
+                int nc = c + dcol[i];
+                if(nr>=0 && nr<m && nc>=0 && nc<n &&vis[nr][nc]==0 && grid[nr][nc]==1){
+                    dfs(nr , nc , vis , v , grid , mr ,mc);
+                }
+            
+        }
+    
+    }
+  public:
+    int countDistinctIslands(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        vector<vector<int>>vis(m , vector<int>(n , 0));
+        set<vector<pair<int , int>>>st;                                  
+        for(int i =0 ; i<m ; i++){
+            for(int j =0 ; j<n ; j++){
+                
+                if(grid[i][j]==1 && vis[i][j]==0){
+                    vector<pair<int , int>>v;
+                    dfs(i , j , vis ,v, grid , i , j);
+                    st.insert(v);
+                }
+            }
+        }
+        return st.size();
+    }
+};
+
+***************************************************************************************************************************************************
+
+alien dictionary:
+
+
+class Solution{
+    private : 
+    vector<int>topo(vector<int>adj[]  , int k){
+        int indegree[k] = {0};
+        for(int i =0  ; i<k ; i++){
+            for(auto it : adj[i]){
+                indegree[it]++;
+            }
+        }
+        
+        queue<int>q;
+        for(int i =0 ; i< k ; i++){
+            if(indegree[i]==0){
+                q.push(i);
+            }
+        }
+        vector<int>res;
+        while(!q.empty()){
+            int top = q.front();
+            q.pop();
+            res.push_back(top);
+            for(auto it : adj[top]){
+                indegree[it]--;
+                if(indegree[it]==0) q.push(it);
+            }
+        }
+        return res;
+        
+    }
+    public:
+    string findOrder(string dict[], int N, int K) {
+     vector<int>adj[K];
+     for(int i =0 ; i<N-1 ; i++){
+         string s1 = dict[i];
+         string s2 = dict[i+1];
+         int len = min(s1.size() , s2.size());
+         for(int j =0 ; j<len ; j++){
+             if(s1[j]!=s2[j]){
+                 adj[s1[j]-'a'].push_back(s2[j]-'a');
+                 break;
+             }
+         }
+     }
+     
+     vector<int>ans = topo(adj , K);
+     string res = "";
+     for(auto it : ans){
+         res = res + char(it + 'a');
+     }
+     return res;
+    }
+};
+
+**************************************************************************************************************************************************
+Shortest path in Directed Acyclic Graph:
+
+class Solution {
+ private:
+ // topo using dfs
+ void topo(int start ,  stack<int>&st , int vis[] , vector<pair<int , int>>adj[]){
+          vis[start] = 1;
+          for(auto it : adj[start]){
+              int v= it.first;
+              if(vis[v]==0){
+                  topo(v , st , vis , adj);
+              }
+          }
+         st.push(start);
+ }
+  public:
+     vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
+        vector<pair<int , int>>adj[N];
+        for(int i =0 ; i<M ; i++){
+            int  u = edges[i][0];
+            int v = edges[i][1];
+            int wt = edges[i][2];
+            adj[u].push_back({v , wt});
+        }
+        
+        int vis[N] = {0};
+        stack<int>st;
+        for(int i =0 ; i<N ; i++){
+            if(vis[i]==0){
+                topo(i , st , vis , adj);
+            }
+        }
+        
+        vector<int>dis(N , 1e9);
+        dis[0] = 0;
+        while(!st.empty()){
+            int top = st.top();
+            st.pop();
+            for(auto it : adj[top]){
+                int v = it.first;
+                int wt = it.second;
+                if(dis[top] + wt < dis[v]){
+                    dis[v] = dis[top] + wt;
+                }
+            }
+        }
+        for(int i =0 ; i<N ; i++){
+            if(dis[i]==1e9) dis[i] = -1;
+        }
+        return dis;
+        
+    }
+};
+
+
+************************************************************************************************************************************
+Shortest path in Undirected Graph having unit distance:
+
+class Solution {
+  public:
+    vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
+        vector<int>adj[N];
+        for(auto it : edges){
+            int u = it[0];
+            int v = it[1];
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+        
+        int vis[N] = {0};
+        vector<int>dis(N , 1e9);
+        dis[src] = 0;
+        queue<int>q;
+        q.push(src);
+        while(!q.empty()){
+            vis[src] = 1;
+            int top = q.front();
+            q.pop();
+            for(auto it : adj[top]){
+                if(vis[it]==0){
+                    if(dis[top] + 1 < dis[it]){
+                        dis[it] = 1 + dis[top];
+                    }
+                     vis[it] = 1;
+                    q.push(it);
+                }
+            }
+        }
+        
+        for(int i =0 ; i<N ; i++){
+            if(dis[i]==1e9) dis[i] = -1;
+        }
+        return dis;
+    }
+};
+
+*******************************************************************************************************************************************
+dijshiktra algo using priority queue:
+
+class Solution
+{
+	public:
+	//Function to find the shortest distance of all the vertices
+    //from the source vertex S.
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        priority_queue<pair<int,int> , vector<pair<int , int>> , greater<pair<int,int>>>pq;
+        pq.push({0 , S});
+        vector<int>dis(V , 1e9);
+        dis[S] = 0;
+        while(!pq.empty()){
+            int dist = pq.top().first;
+            int node = pq.top().second;
+            pq.pop();
+            for(auto it : adj[node]){
+                int adjnode = it[0];
+                int wt = it[1]; 
+                if(dist + wt < dis[adjnode]){
+                    dis[adjnode] = dist + wt;
+                    pq.push({dis[adjnode] , adjnode});
+                }
+            }   
+        }
+        return dis;
+    }
+};
+
+
+**********************************************************************************************************************************************************
+dijshiktra algo using set :
+
+class Solution
+{
+	public:
+	//Function to find the shortest distance of all the vertices
+    //from the source vertex S.
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        // Code here
+        set<pair<int , int>>st;
+        vector<int>dis(V,1e9);
+        dis[S] = 0;
+        st.insert({0 , S});
+        while(!st.empty()){
+            auto it = *(st.begin());
+            int node = it.second;
+            int wt = it.first;
+            st.erase(it);
+            
+            for(auto it : adj[node]){
+                int adjnode = it[0];
+                int dist = it[1];
+                if(wt + dist < dis[adjnode]){
+                    if(dis[adjnode]!=1e9){
+                        st.erase({dis[adjnode] , adjnode});
+                    }
+                    dis[adjnode] = wt + dist;
+                    st.insert({dis[adjnode] , adjnode});
+                    
+                }
+            }
+            
+        }
+        return dis;
+    }
+};
+
+****************************************************************************************************************************************
+Shortest Path in Weighted undirected graph:
+
+class Solution {
+  public:
+    vector<int> shortestPath(int n, int m, vector<vector<int>>& edges) {
+        vector<pair<int , int>>adj[n+1];
+        for(auto it : edges){
+            adj[it[0]].push_back({it[1] , it[2]});
+            adj[it[1]].push_back({it[0] , it[2]});
+        }
+            int parent[n+1] ;
+            for(int i =1 ; i<=n ; i++){
+                parent[i] = i;
+            }
+            
+            vector<int>dis(n+1 , 1e9);
+            dis[1] = 0;
+            priority_queue<pair<int,int> , vector<pair<int ,int>> ,greater<pair<int , int>>>pq;
+            pq.push({0 , 1});
+            while(!pq.empty()){
+                int wt = pq.top().first;
+                int node = pq.top().second;
+                pq.pop();
+                for(auto it : adj[node]){
+                    int adjnode = it.first;
+                    int dist = it.second;
+                    if(wt + dist < dis[adjnode]){
+                        dis[adjnode] = wt + dist;
+                        pq.push({dis[adjnode] , adjnode});
+                        parent[adjnode] = node;
+                    }
+                }
+            }
+        
+        
+        if(dis[n]==1e9) return {-1};
+        vector<int>path;
+        int node = n;
+        while(parent[node]!=node){
+            path.push_back(node);
+            node = parent[node];
+        }
+        path.push_back(1);
+    reverse(path.begin() , path.end());
+    return path;
+    }
+};
+
+************************************************************************************************************************************
+Shortest Distance in a Binary Maze  :
+
+class Solution {
+  public:
+    int shortestPath(vector<vector<int>> &grid, pair<int, int> source,
+                     pair<int, int> destination) {
+        // code here
+        // as graph is not giben me are given grid so we will not make adjacent list
+        int m = grid.size();
+        int n = grid[0].size();
+        vector<vector<int>>dis(m , vector<int>(n , 1e9));
+        dis[source.first][source.second] = 0;
+        // since filling of distance occur 0 11 2 2 .... doesnt require pq;
+        queue<pair<int , pair<int , int>>>q;
+        q.push({0 , {source.first , source.second}});
+        int drow[]={-1, 0 , 1 , 0};
+        int dcol[] = {0 , 1 , 0 ,-1};
+        while(!q.empty()){
+            int dist = q.front().first;
+            int row = q.front().second.first;
+            int col = q.front().second.second;
+            q.pop();
+            for(int i =0 ; i<4 ; i++){
+                int nrow = row + drow[i];
+                int ncol = col + dcol[i];
+                if(nrow>=0 && nrow<m && ncol>=0 && ncol<n && grid[nrow][ncol]==1 && dist + 1 < dis[nrow][ncol]){
+                     dis[nrow][ncol] = dist + 1;
+                   
+                   
+                    q.push({dist+1 , {nrow , ncol}});
+                }
+            }
+          
+        }
+          int a = destination.first;
+          int b = destination.second;
+          if(dis[destination.first][destination.second]==1e9) return -1;
+          return dis[a][b];
+    }
+};
+
+*****************************************************************************************************************************************************
+Prim's Algorithm - Minimum Spanning Tree 
+ 
+class Solution
+{
+	public:
+	//Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int spanningTree(int V, vector<vector<int>> adj[])
+    {
+        // code here
+        priority_queue<pair<int , int> , vector<pair<int , int>> , greater<pair<int , int>>>pq;
+        pq.push({0 ,0});
+        int sum = 0;
+        vector<int>vis(V ,0);
+        while(!pq.empty()){
+            int dis = pq.top().first;
+            int node = pq.top().second;
+            pq.pop();
+           // if the visited node comes again;
+             if( vis[node] ==1); continue;
+            sum+=dis;
+            vis[node] =1;
+            
+           
+            for(auto it : adj[node]){
+                int adjnode = it[0];
+                int edwt = it[1];
+                if(vis[adjnode]==0){
+                    pq.push({edwt , adjnode});
+                }
+            }
+        }
+        return sum;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

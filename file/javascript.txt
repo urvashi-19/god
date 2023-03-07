@@ -1,0 +1,1333 @@
+hiding paragraph on onclick:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            background-color: cornflowerblue;
+            color: azure;
+            padding : 10px 14px;
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> this is my heading</h1>
+        <p1 id ="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat voluptas dolorem architecto dignissimos quidem exercitationem. Ratione illum, accusantium et corporis vitae veniam, molestias laudantium assumenda, eligendi consequatur voluptatibus quaerat perferendis.</p1>
+    </div>
+    <button id="btn" onclick="toggleHide()">show hide</button>
+    <script>
+        function toggleHide(){
+           let btn = document.getElementById('btn');
+           let para= document.getElementById('para');
+           if(para.style.display !='none'){
+            para.style.display = 'none';
+           }
+           else{
+            para.style.display = 'block';
+           }
+           
+
+        }
+    </script>
+    
+</body>
+</html>
+************************************************************************************************************************************************************************
+mouse over para
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            background-color: cornflowerblue;
+            color: azure;
+            padding : 10px 14px;
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> this is my heading</h1>
+        <p1 id ="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat voluptas dolorem architecto dignissimos quidem exercitationem. Ratione illum, accusantium et corporis vitae veniam, molestias laudantium assumenda, eligendi consequatur voluptatibus quaerat perferendis.</p1>
+    </div>
+    <button id="btn" onclick="toggleHide()">show hide</button>
+    <script>
+        let para = document.getElementById('para');
+        para.addEventListener('mouseover',function run(){
+            alert('mouse inside para');
+        })
+        
+    </script>
+    
+</body>
+</html>
+
+**************************************************************************************************************************************************
+mouse over heading
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            background-color: cornflowerblue;
+            color: azure;
+            padding : 10px 14px;
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id ="head"> this is my heading</h1>
+        <p1 id ="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat voluptas dolorem architecto dignissimos quidem exercitationem. Ratione illum, accusantium et corporis vitae veniam, molestias laudantium assumenda, eligendi consequatur voluptatibus quaerat perferendis.</p1>
+    </div>
+    <button id="btn" onclick="toggleHide()">show hide</button>
+    <script>
+        let head = document.getElementById('head');
+        head.addEventListener('mouseover',function run(){
+            alert('mouse on heading');
+        });
+
+        
+     
+        
+    </script>
+    
+</body>
+</html>
+
+
+WE HAVE MOUSEOUT ALSO ALERT(NOT OVER THE HREADING)
+************************************************************************************************
+printing on console the laert notification
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            background-color: cornflowerblue;
+            color: azure;
+            padding : 10px 14px;
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id ="head"> this is my heading</h1>
+        <p1 id ="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat voluptas dolorem architecto dignissimos quidem exercitationem. Ratione illum, accusantium et corporis vitae veniam, molestias laudantium assumenda, eligendi consequatur voluptatibus quaerat perferendis.</p1>
+    </div>
+    <button id="btn" onclick="toggleHide()">show hide</button>
+    <script>
+        let head = document.getElementById('head');
+        head.addEventListener('mouseout',function run(){
+        console.log(('mouse not on heading'));
+        });
+
+        
+     
+        
+    </script>
+    
+</body>
+</html>
+
+********************************************************************************************************************
+set time out:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        this is a container
+     </div>
+     <script>
+         console.log("hi everyone");
+         function greet(){
+             console.log("hello everyone");
+         }
+        //  greet(); calling of function
+         setTimeout(greet,5000);
+        //  settimeout : reapeat after some time;
+        //  clearTimeout : reapeat repeatedly ;
+
+         
+     </script>
+    
+</body>
+</html>
+
+
+
+////////////////////////////////////////
+ARGUMENT BY NAME
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        this is a container
+     </div>
+     <script>
+         console.log("hi everyone");
+         function greet(name,bytext){
+             console.log("hello everyone" + name + bytext);
+         }
+        //  greet(); calling of function
+         setTimeout(greet,5000 ," harry" ,"  takecare");
+        //  settimeout : reapeat after some time;
+        //  clearTimeout : reapeat repeatedly ;
+
+         
+     </script>
+    
+</body>
+</html>
+
+*********************************************************************************************
+timeout:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        this is a container
+     </div>
+     <script>
+         console.log("hi everyone");
+         function greet(name,bytext){
+             console.log("hello everyone" + name + bytext);
+         }
+       
+         timeout = setTimeout(greet,5000 ," harry" ,"  takecare");
+        clearTimeout(timeout);
+
+         
+     </script>
+    
+</body>
+</html>
+
+*************************************************************************
+setinterval: repeats repeatedly:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        this is a container
+     </div>
+     <script>
+         console.log("hi everyone");
+         function greet(name,bytext){
+             console.log("hello everyone" + name + bytext);
+         }
+       
+         intervalid = setinterval(greet,5000 ," harry" ,"  takecare");
+        clearInterval(intervalid); //stopes repeating//
+
+         
+     </script>
+    
+</body>
+</html>
+
+**************************************************************************
+displaying date and time:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        time now is <span id="time"></span>
+     </div>
+     <script>
+        function displaytime (){
+          time = new Date();
+          console.log(time);
+          document.getAnimations('time').innerHtml=time;
+          
+        }
+        setInterval(displaytime,1000);
+       
+
+         
+     </script>
+    
+</body>
+</html>
+****************************************************************************************
+maths in javascript:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cointainer">
+        <h1> this is live</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, at?</p">
+    </div>
+    <script>
+        let m = Math;
+        console.log(m);
+        console.log("the value of Math.E is",Math.E)
+        console.log("the value of Math.pI is",Math.PI)
+        console.log("the value of Math.LN2 is",Math.LN2)
+       
+        
+    </script>
+    
+</body>
+</html>
+***************************************************************************************************
+rounding of num in js
+ let a = 34.5
+        let b=45.66
+        console.log("num is",(a),(b))
+        console.log("num is",Math.round(a),Math.round(b))
+POWER:
+ console.log("power is",Math.pow(2,3));
+  ***************    ********************************************************************************************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        *{
+            padding:10px;
+            margin:10px;
+        }
+        /* this will increase the size of name , email,phone etc */
+        .formdesign{
+            font-size: 32px;
+        }
+        /* will do changes inside the input of formdesign the box */
+        .formdesign input{
+            width:150px;
+            padding: 12px 20px;
+            border: 3px solid blue;
+            margin: 14px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        .formerror{
+         color :red;
+        }
+        .btn{
+            border-radius: 9px;
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin: 22px 20px;
+    }
+    </style>
+    
+   
+</head>
+<body>
+    <h1>FILL THE FORM</h1>
+    <form  name="myform" onsubmit="return valid()" method="post">
+        <div class="formdesign" id="name">
+            NAME:<input type="text" name="fname" required><b><span class="formerror"></span></b>
+        </div>
+        <div class="formdesign" id="email">
+            EMAIL:<input type = "email"  required name="femail"><b><span class="formerror"></span></b></div>
+        <div class="formdesign" id="phone">
+            PHONE:<input type="phone" required name="fphone"><b><span class="formerror"></span></b></div>
+        <div class="formdesign" id="pass">
+            PASSWORD:<input type="password" name="fpass" required><b><span class="formerror"></span></b></div>
+        <div class="formdesign" id="cpass">
+            CONFIRM PASSWORD:<input type="password" name="fcpass" required><b><span class="formerror"></span></b></div>
+            <input type="submit" class="btn" value = "submit">
+    </form>
+    <script>
+        function clearErrors(){
+
+   errors = document.getElementsByClassName('formerror');
+        for(let item of errors)
+        {
+            item.innerHTML = "";
+        }
+
+
+}
+        function seterror(id , error){
+            element = document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerhtml = error;
+        }
+        function valid(){
+            var returnval = true;
+            clearError();
+            var name = document.forms['myform']["fname"].value;
+            if(name.length<5){
+                seterror("name","*length of the name is too short");
+                returnval = false;
+            }
+            if(name.length == 0){
+                seterror("name","*length of the name can't be zero");
+                returnval = false;
+            }
+            var email = document.forms['myform']["femail"].value;
+            if(email.length>15){
+                seterror("email","*email length is too long");
+                returnval = false;
+            }
+            var phone = document.forms['myform']["fphone"].value;
+            if(phone.length!=10){
+                seterror("phone" ,"* phone no is wrong");
+                 returnval = false;
+            }
+            var password = documents.forms['myform']["fpass"].value;
+            if(password.length<6){
+                seterror("password","*password length is short");
+                returnval = false;
+            }
+            var cpassword = documents.forms['myform']["fcpass"].value;
+            if(cpassword!=password){
+                seterror("cpassword","password does not match")
+                returnval = false;
+            }
+            return returnval;
+
+        }
+    </script>
+</body>
+</html>
+
+****************************************************************************************
+changing background on lcick;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        .big{
+            width:50%;
+            height:500px;
+            margin-top: 37px;
+            border:3px solid black;
+        }
+        .btn{
+            width:200px;
+            height:2rem;
+            margin-top: 250px;
+            border:3px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="big" align="center">
+        <button class="btn" onclick="background()">CLICK HERE</button>
+        </div>
+    
+    <script>
+        function background(){
+          var r = Math.floor(Math.random()*255)
+          var g = Math.floor(Math.random()*255)
+          var b = Math.floor(Math.random()*255)
+          var mycolor = "rgb("+r+ "," +g+ ","+b+")"
+          document.querySelector(".big").style.background=mycolor;
+        }
+    </script>
+</body>
+</html>
+***************************************************************************
+nsut.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>bulb</title>
+</head>
+<style>
+*{
+    background-color: black;
+}
+#off{
+    margin-top: 12rem;
+    margin-left:12rem;
+    width:22%;
+    height:16rem;
+    display: none;
+}
+#on{
+    /* margin-top: 12rem;
+    margin-left:22rem;
+    width:25%;
+    height:18rem; */
+    margin-top: 12rem;
+    margin-left:12rem;
+    width:22%;
+    height:16rem;
+    
+}
+.btn1{
+    background-color: white;
+    border :4px solid blue;
+    font-weight: bolder;
+    width: 5%;
+    height: 3rem;
+    position: absolute;
+    top:33rem;
+    left: 22rem;
+}
+.btn1:hover{
+    background-color: aqua;
+    font-size: 2rem;;
+    
+}
+.btn2{
+    background-color: white;
+    border :4px solid blue;
+    font-weight: bolder;
+    width: 5%;
+    height: 3rem;
+    position: absolute;
+    top:33rem;
+    left: 27rem;
+}
+.btn2:hover{
+    background-color: aqua;
+    font-size: 2rem;;
+}
+
+
+</style>
+<body>
+    <div class="container" >
+        <img src="../bulboff.jpg" id="off" >
+        <button class="btn2" onclick="show()">OFF</button>
+        <img src="../bulbon.jpg" id="on" >
+        <button class="btn1" onclick="light()">ON</button>
+       
+
+
+    </div>
+    <script src="index.js"></script>
+    
+</body>
+</html>
+
+INDEX.JS
+
+
+console.log("hello");
+function light(){
+    var on = document.getElementById("off");
+    on.style.display="none";
+   
+    var off = document.getElementById("on");
+    off.style.display="block";
+   ;
+}
+function show(){
+    // var on = document.getElementById("off");
+    // on.style.display="block";
+    var off = document.getElementById("off");
+    off.style.display="block";
+    var off = document.getElementById("on");
+    off.style.display="none";
+    
+}
+*************************************************************************
+guess the word game:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding :0px;
+            margin :0px;
+            box-sizing: border-box;
+            background-color: cornsilk;
+
+        }
+        .container{
+            
+            border:3px solid black;
+            height:18rem;
+            width:26%;
+            margin-top: 4rem;
+            margin-left: 34rem;
+            background: linear-gradient(to bottom, #33ccff 0%, #cc66ff 100%);
+ }
+ #user{
+    border:3px solid black;
+    margin-top: 2rem;
+    width:56%;
+            margin-left: 1rem;
+            height:20px;
+            text-align: center;
+            font-weight: bolder;
+        }
+#comp{
+    border:3px solid black;
+    margin-top: 2rem;
+    width:56%;
+    height:18px;
+        margin-left: 1rem;
+        height:20px;
+        text-align: center;
+        font-weight: bolder;
+}
+#span{
+    color:black;
+    font-weight: bolder;
+}
+.play{
+    border:3px solid black;
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+
+}
+#reset{
+    
+    border:3px solid black;
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+    
+    
+
+}
+.HEAD{
+    font-size: 1rem;;
+
+}
+    </style>
+</head>
+<body>
+    <h1 align="center" style="color:blue;font-weight:bolder;font-size:2rem ; margin-top: 5rem;border:3px solid black;width:30%; margin-left:32rem; background-color: lightcoral;">GUESS THE NUMBER</h1>
+
+    <div class="container"  >
+        <h1 align="center" style="background-color:violet ;" CLASS="HEAD">ENTER THE NUMBER FROM 1-10</h1>
+
+        <input type="text" placeholder="enter a value"  style="background:white"id="user"><br><br>
+        <div type="text" id="comp" style="background:white"></div><br><br>
+        <span id="span"></span><br><br>
+        <button class="play"  style=" margin-left: 1rem;"onclick="play()">PLAY</button>
+        <button id="reset"  onclick="reset()" style=" margin-left: 1rem;" onfocus="this.value=''" value=val>RESET</button>
+        <span id="spanb"></span>
+
+  
+    </div>
+    <script>
+  function play(){
+
+    var val = parseInt(document.getElementById("user").value);
+    
+    var num = parseInt(Math.floor(Math.random()*10));
+    
+    document.getElementById("comp").innerText = num;
+    document.getElementById("spanb").innerHTML="";
+
+*******************************************************************************
+custom mouse
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<style>*{
+    cursor: none;
+
+}
+    .menu{
+     display: flex;
+     justify-content: space-around;
+     margin-top: 10%;
+     font-weight: bolder;
+     font-size: 1rem;
+    }
+    .cursor{
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        border:2px solid crimson;
+        border-radius: 50%;
+        transform: translate(-50% ,-50%);
+        z-index: -1;
+    }
+    .scaleup{
+        transform: scale(2);
+        background-color:crimson;
+    }
+</style>
+<body>
+    <div class="cursor"></div>
+    <div class="menu">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+    <script>
+      const cursor = document.querySelector(".cursor");
+window.addEventListener("mousemove", (e) => {
+  cursor.style.top = e.pageY + "px";
+  cursor.style.left = e.pageX + "px";
+});
+
+
+
+
+    </script>
+    
+</body>
+</html>
+************************************************************************
+MYGAME
+  
+HTML.....
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <div class="container">
+        <button type="button" class="startBtn" onclick="play() , clock()">START GAME</button>
+        <div class="time" >1:00</div>
+       
+
+        <img src="./hair.png"  class="cursor">
+        <img src="./blood.png"  class="bloodSpot">
+        <span id ="span" style=" border-radius:10px;font-size:1.5rem;background: #FEAC5E;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+         margin-left:65rem;margin-top:-40px; background-color: azure ; width:220px;; background-color: cornflowerblue;"></span>
+        <div id="left">KILL</div>
+        <div id="star">EXTRA POINTS EARNED</div>
+        <span class="result" style=" border-radius:10px;font-size:1.5rem;background: #d9a7c7;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+         margin-left:1rem;margin-top:7px; background-color: azure ; width:220px;; background-color: cornflowerblue;display:none"></span>
+        <button type="button" class="stopBtn" onclick="stop()">RESTART</button>
+
+    </div>
+</body>
+<script src="index.js"></script>
+</html> 
+
+CSS.................................................
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+  }
+  /* body{
+      background-image: url("./game4.jpeg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;  
+  } */
+  body {
+    background-image: url("./wall.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+  }
+  /* .cursor{
+     position: absolute;
+      height:100px;
+      transform: translate(-50% ,-50%);
+     z-index: 2;
+     color: black
+     
+  } */
+  .cursor {
+    position: absolute;
+    height: 100px;
+    transform: translate(-50%, -50%);
+   pointer-events: none;
+    z-index: 2;
+    transition: 0.3s transform ease;
+    transform-origin: 100% 100%;
+  }
+  
+  .container{
+      position: fixed;
+      height: 100%;
+  
+  }
+   button{
+     /* border:4px solid black; */
+     font-weight: bolder;
+     color:black;
+     background: #DAE2F8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #D6A4A4, #DAE2F8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #D6A4A4, #DAE2F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+     font-size: 1rem;;
+     padding: 10px 69px;
+     
+     margin-top: 2rem;
+     margin-left:-10rem;
+
+     } 
+     .startBtn::selection{
+      background:transparent
+     }
+
+  
+     /* button {
+    color: #fff;
+    border: 2px solid #fff;
+    background: transparent;
+    padding: 15px 45px;
+    font-size: 1.1rem;
+    margin-top: 3em;
+    outline: none;
+    cursor: none;
+  } */
+     .bloodSpot{
+      position: absolute;
+      height:150px;
+      z-index: 2;
+      transform: translate(-50% ,-50%);
+     
+     }
+     .terr {
+    height: 100px;
+  }
+  
+  img::selection {
+    background: transparent;
+  }
+
+#span{
+    display: none;
+}
+.stopBtn{
+  /* position: relative; */
+    font-weight: bolder;
+    color:black;
+    background: #DAE2F8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #D6A4A4, #DAE2F8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #D6A4A4, #DAE2F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-size: 1rem;;
+    padding: 11px 50px;
+    margin-top: 33rem;
+    margin-left:84.5rem;
+    
+}
+.time{
+  /* background-color: #fff; */
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bolder;
+  
+  height:50px;
+  width:200px;
+}
+#left{
+  border-radius:10px;font-size:1.5rem; margin-left:1rem;margin-top:-40px; background-color: azure ; width:220px;; background-color: cornflowerblue;
+  background: #d9a7c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+ #star{
+
+
+  border-radius:10px;font-size:1.5rem; margin-left:1rem;margin-top: 5px; background-color: azure ; width:220px;; background-color: cornflowerblue;
+  background: #d9a7c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+display:none;
+  
+  }
+.result::selection{
+  background: transparent;
+}
+#left::selection{
+  background: transparent;
+}
+#span::selection{
+  background: transparent;
+}
+.time::selection{
+  background: transparent;
+}
+.stopBtn::selection{
+  background: transparent;
+}
+
+INDEX.JS.............
+
+  let terr = document.createElement("img");
+terr.setAttribute("class", "terr");
+terr.setAttribute("src", "./terr.png");
+terr.style.height="250px";
+// tyle.zIndex = '3';terr.s
+
+let ends = new Audio("end.wav")
+let score = 0;
+
+
+const bloodSpot = document.querySelector(".bloodSpot");
+const container = document.querySelector(".container");
+const startBtn =document.querySelector(".startBtn");
+
+var suc = new Audio("suc.mp3");
+var audio = new Audio("shot.mp3");
+var audio1 = new Audio("back.mp3");
+var audio2 = new Audio("won.wav");
+const span = document.getElementById("span");
+
+const heightc= container.offsetHeight;
+const widthc = container.offsetWidth;
+function play(){
+
+ 
+  document.getElementById("left").innerHTML = "KILLS TO WIN : 15";
+  
+  container.appendChild(terr);
+       audio1.play();
+  setInterval(() => {
+    const Top = Math.random() * (heightc - 100);
+    const Left = Math.random() * (widthc - 100);
+    terr.style.position = "absolute";
+    terr.style.top = Top + "px";
+    terr.style.left = Left + "px";
+  }, 1000); 
+
+ 
+  
+
+  window.addEventListener("click", (e) => {
+    bloodSpot.style.top = e.pageY + "px";
+    bloodSpot.style.left = e.pageX + "px";
+    document.body.style.cursor = 'none';
+    audio.play();
+    audio1.play()
+    if (e.target === terr) {
+      audio2.play();
+      score = score+1;
+      startBtn.innerHTML = "score:" + score;
+      
+      document.getElementById("left").innerHTML = "KILLS LEFT:" + parseInt(15-score);
+    }
+    
+    else{
+      startBtn.innerHTML = "MISSED  &#128558" ;
+    }
+    if(score===5){
+      
+      
+      span.innerHTML = "doing good";
+      suc.play()
+      score = score +2;
+      startBtn.innerHTML = "score:" + score;
+      
+      document.getElementById("left").innerHTML = "KILLS LEFT:" + parseInt(15-score);
+      
+       let star =document.getElementById("star");
+       star.style.display = "block";
+       star.innerHTML = "extra 2 points earned";
+      span.style.display="block";
+    }
+    
+    if(score===8){
+      suc.pause()
+      span.style.display="none";
+      star.style.display = "none";
+    }
+    if(score===10){
+      star.style.display = "block";
+      span.innerHTML = "nice ";
+      suc.play()
+      score = score +2;
+      startBtn.innerHTML = "score:" + score;
+      
+      document.getElementById("left").innerHTML = "KILLS LEFT:" + parseInt(15-score);
+      suc.play()
+      star.innerHTML = "extra 3 points earned";
+      span.style.display="block";
+    }
+    
+    if(score===13){
+      suc.pause();
+      span.style.display="none";
+      star.style.display = "none";
+      
+    }
+    if(score===15){
+      let resultnext = document.querySelector(".result");
+      resultnext.innerHTML = "WINNER";
+       resultnext.style.display = "block";
+       audio.pause();
+       audio1.pause();
+       terr.style.display='none';
+       span.style.display="none";
+       star.style.display = "none";
+       startBtn.innerHTML = "score:" + score;
+     
+    }
+
+    
+    
+    
+    
+  });
+
+
+  const cursor = document.querySelector(".cursor");
+  window.addEventListener("mousemove", (e) => {
+    cursor.style.top = e.pageY + "px";
+    cursor.style.left = e.pageX + "px";
+  });
+
+  
+  
+}
+
+function stop(){
+
+  location.reload();
+}
+
+  function clock(){
+
+    const time = document.querySelector(".time");
+    let timesecond = 59;
+    displaytime(timesecond);
+    let  countdown = setInterval(() => {
+      timesecond--;
+      displaytime(timesecond);
+      if(timesecond<=0 || timesecond<1){
+        endtime();
+        clearInterval(timesecond);
+        
+        if(score<15){
+          let result = document.querySelector(".result");
+          result.innerHTML = "YOU LOSE";
+           result.style.display = "block";
+           audio.pause();
+           terr.style.display='none';
+           span.style.display="none";
+           startBtn.innerHTML = "score:" + score;
+          
+           star.style.display = "none";
+          
+        }
+       
+        
+      }
+      if(score===15){
+        clearInterval(countdown);
+        
+      }
+    },1000);
+    function displaytime(second){
+      const min = Math.floor(second/60);
+      const sec = Math.floor(second % 60);
+      time.innerHTML=`${min<10 ? '0': ''}${min}:${sec<10?'0':''}${sec}`
+
+    }
+    function endtime(){
+      time.innerHTML = 'TIME OUT';
+    
+      audio1.pause();
+     
+      
+
+      }
+      
+    //  if(setInterval)
+     
+
+     
+    }
+**************************************************************************************************************************************************************
+hamburger
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="menu-right">
+            <span onClick="myFunc()">&#9776</span>
+            <ul id="menu">
+                <li>Home</li>
+                <li>Services</li>
+                <li>Blogs</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script  >
+    function myFunc(){
+    console.log("h");
+    var x = document.getElementById("menu");
+    if(x.style.display=="block"){
+        x.style.display="none";
+    }
+    else{
+        x.style.display = "block";
+    }
+    
+}
+</script>
+</html>
+
+css.............
+
+*{
+    margin :0;
+        padding :0;
+}
+.nav{
+    background-color: #1d4052;
+    color:#fff;
+    padding: 20px;
+    font-family: sans-serif;
+}
+.menu-right{
+    text-align: right;
+}
+ul li{
+    display: inline-block;
+    margin: 20px;
+    list-style: none;
+}
+span{
+    margin : 0 20 px;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+}
+@media only screen and (max-width:700px){
+    span{
+        display: block;
+    }
+    ul li{
+        display: block;
+    }
+    ul{
+        display:none;
+    }
+}
+************************************************************************************************************************************
+image slider
+
+index.html--------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <main>
+   <img src="https://picsum.photos/id/237/200/300" class="slide" alt="">
+   <img src="https://picsum.photos/seed/picsum/200/300" class="slide" alt="">
+   <img src="https://picsum.photos/200/300?grayscale" class="slide" alt="">
+   <img src="https://picsum.photos/seed/picsum/200/300" class="slide" alt="">
+    </main>
+    <div class="nav">
+        <button onclick="goPrev()">prev</button>
+        <button onclick="goNext()">next</button>
+    </div>
+</body>
+<script src="script.js">
+   
+</script>
+</html>
+
+css...................
+*{
+    padding :0;
+    margin:0;
+    box-sizing: border-box;
+    
+}
+main{
+    width:40%;
+    height:500px;
+    margin:auto;
+    margin-top:100px;
+    position: relative;
+    box-shadow: 0px 0px 3px grey;
+    overflow: hidden;
+
+}
+.slide{
+    width:100%;
+    height:100%;
+    position: absolute;
+    transition: 1s;
+}
+.nav{
+    text-align: center;
+    margin-top: 15px;
+}
+.nav button{
+    font-size: 25px;
+    padding:5px ;
+}
+
+
+script.js-----------------------------
+
+const slides = document.querySelectorAll(".slide");
+var counter = 0;
+slides.forEach(
+    (slide , index)=>{
+        slide.style.left = `${index*100}%`
+
+    }
+)
+const goPrev = ()=>{
+   counter--;
+   if(counter==-1)counter=3;
+  
+    console.log("val of prev",counter)
+    slideImage();
+}
+const goNext = ()=>{
+    counter++;
+    if(counter==4)counter=0;
+    console.log("val of next",counter)
+    slideImage();
+}
+const slideImage = ()=>{
+    
+    slides.forEach(
+        (slide)=>{
+   slide.style.transform = `translateX(-${counter*100}%)`
+        }
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

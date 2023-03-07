@@ -1,0 +1,122 @@
+3.
+
+int main()
+{
+    char str[1000];
+     cin >> str;
+    compress(str);
+}#include <bits/stdc++.h>
+
+using namespace std;
+void compress(char str[]){
+    int i = 0, j = 0, count;
+    while (str[i] != '\0')
+    {
+        count = 1;
+        j = i + 1;
+        while (str[j] != '\0')
+        {
+            if (str[i] == str[j])
+
+            {
+                count = count + 1;
+                j = j + 1;
+            }
+            else
+                break;
+        }
+
+        if (count > 1)
+        {
+            cout << str[i] << count;
+        }
+        else
+        {
+            cout << str[i];
+        }
+        i = i + count;
+    }
+
+}
+
+**********************************************
+2.
+# include<bits\stdc++.h>
+using namespace std;
+void dublicate(char str[]){
+    int i, j;
+     for (i = 0; str[i]!='\0'; i++)
+    {
+        for (j = 0; str[j]!='\0'; j++)
+        {
+            if (str[i] == str[j])
+            {
+                break;
+            }
+        }
+        if (i == j)
+        {
+           
+            cout<< str[i];
+        }
+    }
+
+}
+int main(){
+    char str[100];
+    cin>>str;
+    dublicate(str);
+}
+
+4.
+#include <bits\stdc++.h>
+using namespace std;
+void character(char ch[])
+{
+    int i;
+    for (i = 0; ch[i] != '\0'; i++)
+    {
+        if ((ch[i] >= 'A' && ch[i] <= 'Z') || (ch[i] >= 'a' && ch[i] <= 'z') || (ch[i] >= '0' && ch[i] <= '9'))
+        {
+            continue;
+        }
+        else
+        {
+            cout << ch[i];
+        }
+    }
+}
+
+int main()
+{
+    char ch[100];
+    cin >> ch;
+    character(ch);
+}
+***********************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

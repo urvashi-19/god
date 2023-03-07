@@ -1,0 +1,757 @@
+building a binary tree
+
+# include<bits/stdc++.h>
+using namespace std;
+class node
+{
+    public:
+   int data;
+   node*left;
+   node*right;
+   node(int val){
+    data = val;
+    left=right=NULL;
+   }
+
+};
+void levelordertraversal(node*root){
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty()){
+        // cout<<"hello";
+        node*top = q.front();
+        q.pop();
+        cout<<top->data<<" ";
+        if(top->left)q.push(top->left);
+        if(top->right)q.push(top->right);
+    }
+}
+int main(){
+     node*root = new node(1);
+     root->left = new node(2);
+     root->right = new node(3);
+     root->left->left = new node(4);
+     root->left->right = new node(5);
+     
+     levelordertraversal(root);
+
+     
+}
+********************************************************************************************************************
+for any tree   //level order
+# include<bits/stdc++.h>
+using namespace std;
+class node
+{
+    public:
+   int data;
+   node*left;
+   node*right;
+   node(int val){
+    data = val;
+    left=right=NULL;
+   }
+
+};
+void levelordertraversal(node*root){
+    queue<node*>q;
+    q.push(root);
+
+    while(!q.empty()){
+        int tlevel = q.size();
+        while(tlevel--){
+            node*top = q.front();
+            q.pop();
+            cout<<top->data<<"";
+            if(top->left)q.push(top->left);
+            if(top->right)q.push(top->right);
+        }
+        cout<<endl;
+    }
+    }
+
+int main(){
+     node*root = new node(1);
+     root->left = new node(2);
+     root->right = new node(3);
+     root->right->left = new node(4);
+     root->right->right = new node(5);
+     
+     levelordertraversal(root);
+
+     
+}
+*************************************************************************************************************************
+depth order traversal
+
+# include<bits/stdc++.h>
+using namespace std;
+class node
+{
+    public:
+   int data;
+   node*left;
+   node*right;
+   node(int val){
+    data = val;
+    left=right=NULL;
+   }
+
+};
+// preorder traversal
+void preordertraversal(node*root){
+    if(root==NULL)return;
+   cout<<root->data;
+   preordertraversal(root->left);
+   preordertraversal(root->right);
+
+}
+void postordertraversal(node*root){
+    if(root==NULL)return;
+  
+   postordertraversal(root->left);
+
+   postordertraversal(root->right);
+    cout<<root->data;
+
+}
+void inordertraversal(node*root){
+    if(root==NULL)return;
+  
+   inordertraversal(root->left);
+
+   inordertraversal(root->right);
+    cout<<root->data;
+
+}
+
+int main(){
+     node*root = new node(1);
+     root->left = new node(2);
+     root->right = new node(3);
+     root->left->right = new node(4);
+     root->right->left = new node(5);
+     root->right->right = new node(6);
+     
+    preordertraversal(root); //NLR
+     inordertraversal(root); //LNR
+     postordertraversal(root); //LRN
+
+     
+}
+***********************************************************************************************************************
+inorder traversal iterative
+
+# include<bits/stdc++.h>
+using namespace std;
+class node
+{
+    public:
+   int data;
+   node*left;
+   node*right;
+   node(int val){
+    data = val;
+    left=right=NULL;
+   }
+
+};
+void inorder(node*root){
+    stack<node*>st;
+    vector<int>v;
+    while(true){
+        if(root != NULL){
+            
+            st.push(root);
+            root = root->left;
+        }
+        else{
+            
+            if(st.empty())break;
+            root = st.top();
+            
+            st.pop();
+            v.push_back(root->data);
+            root = root->right;
+          
+        }
+        
+    }
+
+     for(int i= 0 ;i<v.size();i++)cout<<v[i]<<" ";
+    
+
+}
+int main(){
+    node*root = new node(1);
+     root->left = new node(2);
+     root->right = new node(3);
+     root->left->right = new node(4);
+     root->right->left = new node(5);
+     root->right->right = new node(6);
+     inorder(root);
+    
+}
+
+*************************************************************************************************************************************************************
+preorder traversal iterative
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void preorder(node *root)
+{
+    stack<node *> st;
+    vector<int> v;
+    st.push(root);
+    while (!st.empty())
+    {
+        root = st.top();
+        st.pop();
+        v.push_back(root->data);
+
+        if (root->right)
+            st.push(root->right);
+        if (root->left)
+            st.push(root->left);
+    }
+
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+    preorder(root);
+}
+*****************************************************************************************************************************
+postorder traversal iterative
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void postorder(node *root)
+{
+    stack<node*>st;
+    vector<int>v;
+    st.push(root);
+    while(!st.empty()){
+    int size = st.size();
+    while(size--){
+        root = st.top();
+        st.pop();
+        v.push_back(root->data);
+        if(root->left)st.push(root->left);
+        if(root->right)st.push(root->right);
+
+    }
+    }
+    reverse(v.begin() , v.end());
+
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+    postorder(root);
+}
+*****************************************************************************************************************************
+moshii preorder   one stack
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void preorder(node *root)
+{
+      vector<int>v;
+      while(root!=NULL){
+        if(root->left==NULL){
+            v.push_back(root->data);
+            root = root->right;
+
+        }
+        else{
+            node*prev = root->left;
+            while(prev->right && prev->right!=root){
+                prev = prev->right;
+            }
+            if(prev->right==NULL){
+                prev->right=root;
+                v.push_back(root->data);
+                root = root->left;
+
+            }
+            else{
+                prev->right = NULL;
+                root = root->right;
+
+            }
+        }
+      }
+
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+    preorder(root);
+}
+
+***********************************************************************************************************************************************
+moshi inorder
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void inorder(node *root)
+{
+      vector<int>v;
+      while(root!=NULL){
+        if(root->left==NULL){
+            v.push_back(root->data);
+            root = root->right;
+
+        }
+        else{
+            node*prev = root->left;
+            while(prev->right && prev->right!=root){
+                prev = prev->right;
+            }
+            if(prev->right==NULL){
+                prev->right=root;
+               
+                root = root->left;
+
+            }
+            else{
+                prev->right = NULL; 
+                v.push_back(root->data);
+                root = root->right;
+
+            }
+        }
+      }
+
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+    inorder(root);
+}
+
+********************************************************************************************
+verticle ....
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void inorder(node *root , int hdis , map<int,vector<int>>&m)
+{
+    if(root==NULL)return;
+    m[hdis].push_back(root->data);
+    inorder(root , hdis-1 , m);
+    inorder(root , hdis+1 , m);
+      
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+    map<int , vector<int>>m;
+    int hdis = 0;
+    inorder(root , hdis , m);
+    //cout value using  map
+}
+
+******************************************************************************************************************************
+view from left side;
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void inorder(node *root)
+{
+    if (root == NULL)
+        return;
+    queue<node *> q;
+    vector<int> v;
+    q.push(root);
+    while (!q.empty())
+    {
+        int n = q.size();
+        for (int i = 1; i <= n; i++)
+        {
+            node*temp = q.front();
+            q.pop();
+            if (i == 1)
+            {
+                v.push_back(temp->data);
+               
+            }
+             
+            if (temp->left!=NULL)
+                q.push(temp->left);
+            if (temp->right!=NULL)
+                q.push(temp->right);
+        }
+    }
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+
+    inorder(root);
+}
+*****************************************************************************************************************************************
+right side view
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void inorder(node *root)
+{
+    if (root == NULL)
+        return;
+    queue<node *> q;
+    vector<int> v;
+    q.push(root);
+    while (!q.empty())
+    {
+        int n = q.size();
+        for (int i = 1; i <= n; i++)
+        {
+            node*temp = q.front();
+            q.pop();
+            if (i == n)
+            {
+                v.push_back(temp->data);
+               
+            }
+             
+            if (temp->left!=NULL)
+                q.push(temp->left);
+            if (temp->right!=NULL)
+                q.push(temp->right);
+        }
+    }
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+
+    inorder(root);
+}
+*********************************************************************************************************************************************************
+diagonal root traverse
+iterative approach:
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void inorder(node *root)
+{
+    queue<node *> q;
+    if(root==NULL)return;
+    q.push(root);
+    while(!q.empty()){
+    node*temp = q.front();
+    q.pop();
+    while(temp!=NULL){
+        if(temp->left!=NULL)q.push(temp->left);
+        cout<<temp->data;
+         temp = temp->right;
+    }
+    }
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+
+    inorder(root);
+}
+*************************************************************************************************************************************
+
+zigzag taversal
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void inorder(node *root)
+{
+    if(root==NULL)return;
+    queue<node *> q;
+    q.push(root);
+    vector<int> ans;
+    int flag = 1;
+    while (!q.empty())
+    {
+        vector<int> temp;
+        int size = q.size();
+        while (size--)
+        {
+            node *top = q.front();
+            q.pop();
+            temp.push_back(top->data);
+            if (top->left)
+                q.push(top->left);
+            if (top->right)
+                q.push(top->right);
+        }
+        if (flag %2== 0)
+            reverse(temp.begin(), temp.end());
+        for (int i = 0; i < temp.size(); i++){
+            ans.push_back(temp[i]);}
+        flag = !flag;
+    }
+    for (int i = 0; i < ans.size(); i++)
+        cout << ans[i];
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+
+    inorder(root);
+}
+
+**************************************************************************************************************************************************\
+boundary traversal
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *left;
+    node *right;
+    node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+void left(node*root , vector<int>&ans){
+    if(root==NULL)return;
+    if(root->left!=NULL){
+    ans.push_back(root->data);
+    left(root->left , ans);}
+    else if(root->right!=NULL){
+        ans.push_back(root->data);
+    }
+}
+void leaf(node*root , vector<int>&ans){
+    if(root==NULL)return;
+    leaf(root->left , ans);
+    if(root->left==NULL&&root->right==NULL)ans.push_back(root->data);
+    leaf(root->right,ans);
+}
+void right(node*root , vector<int>&ans){
+    if(root==NULL)return;
+    if(root->right!=NULL){
+    right(root->right  ,ans);
+    ans.push_back(root->data);}
+    else if (root->left!=NULL){
+        right(root->left , ans);
+        ans.push_back(root->data);
+    }
+
+}
+int main()
+{
+    node *root = new node(1);
+    root->left = new node(2);
+    root->right = new node(3);
+    root->left->right = new node(4);
+    root->right->left = new node(5);
+    root->right->right = new node(6);
+    vector<int>ans;
+    ans.push_back(root->data);
+    left(root->left , ans);
+    leaf(root  , ans);
+    right(root->right , ans);
+    for(int i=0 ;i<ans.size();i++)cout<<ans[i];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

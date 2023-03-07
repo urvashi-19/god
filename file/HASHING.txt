@@ -1,0 +1,218 @@
+map
+
+unordered_map : based on hashing , tc: 0(1);
+ordered_map : based on bst , tc: o(logn);
+
+1. INSERTION IN MAP
+. unordered_map<int , int>m;
+
+. using pairs;
+pair<int , int>p;
+p->first = 6;
+p->second = 10;
+m.insert(p); or m.insert({6 , 10})
+
+
+. using pairs and vector
+pair<int , int>p;
+p->first = 5;
+vector<int>temp{1,2,3,4};
+p->second = temp;
+m.insert(p);
+or m.insert(5 , {1,2,3,4});
+
+2. FIND IN MAP
+
+if(m.find(key)!=m.end())cout<<"YES";
+else cout<<"NO";
+
+3. ERASE IN MAP 
+m.erase(key);
+
+Q1. FIND THE COUNT OF ELEMENTS IN ARRAY
+INPUT: 1 2 3 13 4 5 6-1
+OUTPUT:
+6->1
+5->1
+4->1
+13->1
+3->1
+2->1
+1->1
+
+CODE:
+# include<bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<int>arr;
+    int t; 
+    cin>>t;
+    unordered_map<int, int>m;
+    while(t!=-1){
+        arr.push_back(t);
+        cin>>t;
+    }
+    for(int i = 0 ; i<arr.size() ; i++){
+        if(m.find(arr[i])!=m.end()){
+            auto it = m.find(arr[i]);
+            (it->second)++;
+        }
+        else{
+            m.insert({arr[i],1});
+        }
+    }
+    
+    for(auto it = m.begin() ; it!=m.end() ; it++){
+        cout<<it->first<<"->"<<it->second<<endl;
+////// nor *(it)
+    }
+}
+
+
+//// for(auto it : mp){
+            //cout<<it.second<<endl;
+            if(it.second==n/2)
+            {       ans = it.first;
+            break;
+                 }
+        }
+
+Q2. Count pairs with given sum
+CODE:
+    int getPairsCount(int arr[], int n, int k) {
+        int ans = 0;
+        unordered_map<int , int>m;
+        for(int i =0 ; i<n ; i++){
+           if(m.find(k-arr[i])!=m.end()){
+               ans+=m[k-arr[i]];
+           }
+           m[arr[i]]++;
+        }
+        return ans;
+    }
+
+
+
+
+
+SORTING A MAP...
+ . sorting first;
+
+
+# include<bits/stdc++.h>
+using namespace std;
+int cmp(pair<int , int>a , pair<int , int>b){
+    return a.first<b.first;
+}
+
+int main(){
+    unordered_map<int, int>mp;
+    int n ; cin>>n;
+    for(int i =0 ; i<n ;i++){
+        int x ; cin>>x;
+        mp[x]++;
+    }
+    
+    vector<pair<int , int>>v(mp.begin(),mp.end());
+    sort(v.begin(),v.end(),cmp);
+  
+  for(int i =0 ; i<v.size();i++){
+      cout<<v[i].first<<"-> "<<v[i].second<<endl;
+  }
+    
+  
+}
+
+output: 
+
+10
+2 1 2 2 2 1 5 2 1 5
+1-> 3
+2-> 5
+5-> 2
+
+. sorting second;
+
+# include<bits/stdc++.h>
+
+int cmp1(pair<int , int>a , pair<int , int>b){
+    return a.second<b.second;
+}
+int main(){
+    unordered_map<int, int>mp;
+    int n ; cin>>n;
+    for(int i =0 ; i<n ;i++){
+        int x ; cin>>x;
+        mp[x]++;
+    }
+    
+    vector<pair<int , int>>v(mp.begin(),mp.end());
+  
+    sort(v.begin(),v.end() , cmp1);
+  
+  for(int i =0 ; i<v.size();i++){
+      cout<<v[i].first<<"-> "<<v[i].second<<endl;
+  }
+    
+   
+}
+
+output: 
+
+10                 
+2 1 2 2 2 1 4 5 5 3
+3-> 1
+4-> 1
+5-> 2
+1-> 2
+2-> 4
+
+
+
+LEETCODE SYNTAX:
+class Solution {
+public:
+static int cmp1(pair<int , int>a , pair<int , int>b){
+    return a.second>b.second;
+}
+    string frequencySort(string s) {
+        string ans = "";
+     unordered_map<char , int>mp;
+     for(int i=0;i<s.size();i++)
+    {
+        mp[s[i]]++;
+    }
+     vector<pair<char , int>>v(mp.begin(),mp.end());
+     sort(v.begin(),v.end() , cmp1);
+    
+
+    for(auto it : v){
+        for(int i = 0 ; i<it.second ; i++){
+           ans+=it.first;
+        }
+    }
+    return ans;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
